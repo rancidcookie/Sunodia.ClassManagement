@@ -1,0 +1,103 @@
+﻿@model FHI.Models.eventTransactionViewModel
+
+@{
+    ViewBag.Title = "Expenses";
+    int eventId = Model.EventId;
+    decimal totalFees = 0;
+}
+
+<h2>Expenses for @Model.Event.NickName</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Student
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transactions.ElementAtOrDefault(1000).PaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transactions.ElementAtOrDefault(1000).Amount)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var trx in Model.Transactions.Where(x => x.fee > 0))
+    {
+    <tr>
+        @{totalFees = totalFees + trx.fee??0;}
+        <td>@Html.DisplayFor(item=> trx.StudentId)</td>
+        <td>@Html.DisplayFor(item => trx.PaymentMethod)</td>
+        <td>@Html.DisplayFor(item => trx.Amount)</td>
+        <td>@Html.DisplayFor(item => trx.fee)</td>
+
+    </tr>
+    }
+    </table>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transactions.First().Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transactions.First().Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transactions.First().Amount)
+            </th>
+            <th></th>
+        </tr>
+        @if(totalFees > 0)
+        {
+            <tr><td>Total Fees</td><td></td><td>@string.Format("{0:c}", totalFees)</td></tr>
+        }
+        @foreach (var item in Model.Transactions.Where(x => x.StudentId == null))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, null)
+                </td>
+            </tr>
+        }
+
+        @using (Html.BeginForm("Create", "EventTransactions", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(s => s.EventId, new { Value = eventId })
+            @Html.HiddenFor(s => s.Transactions.ElementAtOrDefault(1000).DateAdded, new { Value = DateTime.Now })
+            @Html.HiddenFor(s => s.Transactions.ElementAtOrDefault(1000).FHICredit, new { Value = false })
+            <tr>
+                <td>
+                    <div class="col-md-10">
+                        @Html.EditorFor(s => s.Transactions.ElementAtOrDefault(1000).Description, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                        @Html.ValidationMessageFor(s => s.Transactions.ElementAtOrDefault(1000).Description, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+                <td>
+                    @Html.DropDownListFor(s => s.Transactions.ElementAtOrDefault(1000).CategoryId, Model.TransactionCategories, "Select Category", htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(s => s.Transactions.ElementAtOrDefault(1000).Amount, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(s => s.Transactions.ElementAtOrDefault(1000).Amount, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                    @Html.ValidationMessageFor(s => s.Transactions.ElementAtOrDefault(1000).Amount, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        @Html.ActionLink("Back to Event", "Edit", "Events", new { id = eventId }, null)
+    </div>

@@ -1,0 +1,21 @@
+Sunodia DB
+User: sunadmin
+Pwd: PrayerWorks!
+
+
+FTP Creds
+vssunodia
+HopeLives!
+
+Eventbrite
+Eventbrite API plugin	UQWTFYYPI6CMDWHV4Q
+Show Client Secret and OAuth Token	Key Details
+Directory Listing 
+App Extension
+Client secret	PT3UIC6W2WZJQ6E36GAI6LSV2CWI3EBF7G4VUFILSV5OBA3ULG
+Your personal OAuth token	QQ52LM4N3YJOLBDSXWJF
+Anonymous access OAuth token	6VOIFJJIBFWQ5VKZ2I3M
+
+
+
+https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=QQ52LM4N3YJOLBDSXWJF

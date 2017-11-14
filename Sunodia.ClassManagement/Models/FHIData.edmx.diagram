@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8d89ec9b1a0941bc8117aa313180a054" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="fhiModel.Book" Width="1.5" PointX="3.75" PointY="10.625" />
+        <EntityTypeShape EntityType="fhiModel.BooksPerClass" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fhiModel.Certificate" Width="1.5" PointX="6.75" PointY="22" />
+        <EntityTypeShape EntityType="fhiModel.ClassAttendee" Width="1.5" PointX="3" PointY="17.125" />
+        <EntityTypeShape EntityType="fhiModel.CourseCert" Width="1.5" PointX="9" PointY="4.875" />
+        <EntityTypeShape EntityType="fhiModel.CourseFormat" Width="1.5" PointX="3.75" PointY="23.375" />
+        <EntityTypeShape EntityType="fhiModel.CourseMaterial" Width="1.5" PointX="12" PointY="6.5" />
+        <EntityTypeShape EntityType="fhiModel.Cours" Width="1.5" PointX="3.75" PointY="6.5" />
+        <EntityTypeShape EntityType="fhiModel.EventbriteEvent" Width="1.5" PointX="8.25" PointY="31" />
+        <EntityTypeShape EntityType="fhiModel.EventCost2Student" Width="1.5" PointX="8.25" PointY="28" />
+        <EntityTypeShape EntityType="fhiModel.Event" Width="1.5" PointX="6" PointY="12.375" />
+        <EntityTypeShape EntityType="fhiModel.EventStudent" Width="1.5" PointX="8.25" PointY="18.875" />
+        <EntityTypeShape EntityType="fhiModel.EventTransaction" Width="1.5" PointX="8.25" PointY="14.125" />
+        <EntityTypeShape EntityType="fhiModel.EventTransactionComment" Width="1.5" PointX="10.5" PointY="19" />
+        <EntityTypeShape EntityType="fhiModel.EventTransactionStudent" Width="1.5" PointX="13.5" PointY="14.75" />
+        <EntityTypeShape EntityType="fhiModel.EventVenue" Width="1.5" PointX="8.25" PointY="11" />
+        <EntityTypeShape EntityType="fhiModel.Frequency" Width="1.5" PointX="3.75" PointY="21" />
+        <EntityTypeShape EntityType="fhiModel.Group" Width="1.5" PointX="0.75" PointY="11.125" />
+        <EntityTypeShape EntityType="fhiModel.MiscTransaction" Width="1.5" PointX="11.25" PointY="14" />
+        <EntityTypeShape EntityType="fhiModel.PaymentMethod" Width="1.5" PointX="9" PointY="7.75" />
+        <EntityTypeShape EntityType="fhiModel.Person" Width="1.5" PointX="0.75" PointY="13.625" />
+        <EntityTypeShape EntityType="fhiModel.PersonGroup" Width="1.5" PointX="3" PointY="14" />
+        <EntityTypeShape EntityType="fhiModel.StudentCost" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fhiModel.Table" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="fhiModel.TransactionCategory" Width="1.5" PointX="6" PointY="9.125" />
+        <EntityTypeShape EntityType="fhiModel.Vendor" Width="1.5" PointX="9.75" PointY="2" />
+        <EntityTypeShape EntityType="fhiModel.Venue" Width="1.5" PointX="6" PointY="2.5" />
+        <EntityTypeShape EntityType="fhiModel.VenueType" Width="1.5" PointX="3.75" PointY="3.125" />
+        <EntityTypeShape EntityType="fhiModel.vwEventTransaction" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fhiModel.vwFullPeople" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="fhiModel.vwGroup" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="fhiModel.vwPaymentExpens" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="fhiModel.FK_Classes_ToBooks" />
+        <AssociationConnector Association="fhiModel.FK_CourseCerts_Certificates" />
+        <AssociationConnector Association="fhiModel.FK_ClassAttendees_ToPeople" />
+        <AssociationConnector Association="fhiModel.FK_CourseCerts_Course" />
+        <AssociationConnector Association="fhiModel.FK_Classes_ToCourseFormat" />
+        <AssociationConnector Association="fhiModel.FK_CourseMaterials_ToCourse" />
+        <AssociationConnector Association="fhiModel.FK_CourseMaterials_ToVendor" />
+        <AssociationConnector Association="fhiModel.FK_Classes_ToCourses" />
+        <AssociationConnector Association="fhiModel.FK_EventbriteEvents_ToEvents" />
+        <AssociationConnector Association="fhiModel.FK_EventCost2Student_ToEvent" />
+        <AssociationConnector Association="fhiModel.FK_ClassAttendees_ToClasses" />
+        <AssociationConnector Association="fhiModel.FK_Events_ToFacilitator" />
+        <AssociationConnector Association="fhiModel.FK_Events_ToFrequency" />
+        <AssociationConnector Association="fhiModel.FK_EventStudents_Events" />
+        <AssociationConnector Association="fhiModel.FK_EventTransaction_ToEvent" />
+        <AssociationConnector Association="fhiModel.FK_EventVenues_ToEvents" />
+        <AssociationConnector Association="fhiModel.FK_MiscTransactions_ToClasses" />
+        <AssociationConnector Association="fhiModel.FK_EventStudents_People" />
+        <AssociationConnector Association="fhiModel.FK_EventTransaction_ToPaymentMethod" />
+        <AssociationConnector Association="fhiModel.FK_EventTransaction_ToTransactionCategory" />
+        <AssociationConnector Association="fhiModel.FK_EventTransactionComment_EventTransaction" />
+        <AssociationConnector Association="fhiModel.FK_EventTransactionStudent_EventTransaction" />
+        <AssociationConnector Association="fhiModel.FK_EventTransactionStudent_People" />
+        <AssociationConnector Association="fhiModel.FK_EventVenues_ToVenue" />
+        <AssociationConnector Association="fhiModel.FK_PersonGroups_ToGroups" />
+        <AssociationConnector Association="fhiModel.FK_ClassAttendees_ToPayer" />
+        <AssociationConnector Association="fhiModel.FK_ClassAttendees_ToPaymentType" />
+        <AssociationConnector Association="fhiModel.FK_MiscTransactions_ToPayer" />
+        <AssociationConnector Association="fhiModel.FK_MiscTransactions_ToPaymentType" />
+        <AssociationConnector Association="fhiModel.FK_PersonGroups_ToPeople" />
+        <AssociationConnector Association="fhiModel.FK_Venue_VenueType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

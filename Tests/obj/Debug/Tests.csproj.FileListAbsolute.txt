@@ -1,0 +1,13 @@
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Tests.dll
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Tests.pdb
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Eventbrite.dll
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Eventbrite.pdb
+D:\MyDocs\vs\FHI\FHI\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+D:\MyDocs\vs\FHI\FHI\Tests\obj\Debug\Tests.dll
+D:\MyDocs\vs\FHI\FHI\Tests\obj\Debug\Tests.pdb
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Danware.Danmail.dll
+D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Danware.Danmail.pdb
+D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.dll
+D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.pdb

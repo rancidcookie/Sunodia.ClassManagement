@@ -1,0 +1,1108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fhiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Vendor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BooksPerClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="Charge" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Certificates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CertDescription" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ClassAttendees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+    <Property Name="PayerId" Type="int" />
+    <Property Name="Paid" Type="money" />
+    <Property Name="RegistrationTypeId" Type="int" />
+    <Property Name="Attending" Type="bit" Nullable="false" />
+    <Property Name="QBDate" Type="datetime" />
+    <Property Name="PaymentTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="CourseCerts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CertId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseFormats">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Format" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccountId" Type="int" />
+  </EntityType>
+  <EntityType Name="CourseMaterials">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="MaterialName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CostToStudent" Type="money" Nullable="false" />
+    <Property Name="CostToOrg" Type="money" Nullable="false" />
+    <Property Name="PurchaseOptions" Type="varchar" MaxLength="50" />
+    <Property Name="VendorId" Type="int" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CourseNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cert" Type="varchar" MaxLength="50" />
+    <Property Name="DateAdded" Type="date" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventbriteEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EventbriteEventId" Type="varchar" MaxLength="50" />
+    <Property Name="EventbriteEventURL" Type="varchar" MaxLength="50" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventCost2Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="CostDescription" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Required" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="CourseDate" Type="datetime" />
+    <Property Name="MaterialCost" Type="money" />
+    <Property Name="CourseFormatId" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="BookCost" Type="money" />
+    <Property Name="BookId" Type="int" />
+    <Property Name="RegistrationDate" Type="datetime" />
+    <Property Name="QuickBooksDate" Type="datetime" />
+    <Property Name="Complete" Type="bit" Nullable="false" />
+    <Property Name="RegistrationCost" Type="money" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="Frequency" Type="varchar" MaxLength="50" />
+    <Property Name="CourseType" Type="varchar" MaxLength="50" />
+    <Property Name="NickName" Type="varchar" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="FacilitatorId" Type="int" />
+    <Property Name="FrequencyId" Type="int" />
+  </EntityType>
+  <EntityType Name="EventStudents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="FHICredit" Type="bit" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="TransactionCategoryId" Type="int" />
+    <Property Name="PaymentMethodId" Type="int" />
+  </EntityType>
+  <EntityType Name="EventTransactionComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventTransactionId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventTransactionStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventTransactionId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="RegistrationTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="EventVenues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VenueId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Frequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Frequency" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MiscTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="PayerId" Type="int" />
+    <Property Name="Paid" Type="money" />
+    <Property Name="QBDate" Type="datetime" />
+    <Property Name="PaymentTypeId" Type="int" />
+    <Property Name="QBAccount" Type="int" />
+    <Property Name="TransactionDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaymentMethods">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Percentage" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="PlusFee" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Zip" Type="varchar" MaxLength="50" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="Comments" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="PersonGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="PersonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QBAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="QBAccount" Type="varchar" MaxLength="10" />
+    <Property Name="IsCredit" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RegistrationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentCosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="DefaultAmount" Type="money" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransactionCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Address1" Type="varchar" MaxLength="255" />
+    <Property Name="Address2" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="100" />
+    <Property Name="State" Type="varchar" MaxLength="3" />
+    <Property Name="Zip" Type="varchar" MaxLength="10" />
+    <Property Name="VenueTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="VenueType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwEventTransactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwEventTransactions">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="EventId" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="FHICredit" />
+      <PropertyRef Name="DateAdded" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="FHICredit" Type="bit" Nullable="false" />
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="int" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="RegistrationTypeId" Type="int" />
+    <Property Name="RegistrationType" Type="varchar" MaxLength="100" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Category" Type="varchar" MaxLength="50" />
+    <Property Name="fee" Type="decimal" Precision="35" Scale="11" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwFullPeople' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwFullPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Zip" Type="varchar" MaxLength="50" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="Donor" Type="varchar" MaxLength="50" />
+    <Property Name="Student" Type="varchar" MaxLength="50" />
+    <Property Name="Client" Type="varchar" MaxLength="50" />
+    <Property Name="MinistryPartner" Type="varchar" MaxLength="50" />
+    <Property Name="MailChimp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwGroups">
+    <Key>
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="GroupName" Type="varchar" MaxLength="50" />
+    <Property Name="FullName" Type="varchar" MaxLength="201" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Zip" Type="varchar" MaxLength="50" />
+    <Property Name="Phone2" Type="varchar" MaxLength="50" />
+    <Property Name="Comments" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwMiscTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwMiscTotals">
+    <Key>
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="PaymentMethod" />
+    </Key>
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TotalPaid" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwPaymentExpenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwPaymentExpenses">
+    <Key>
+      <PropertyRef Name="DateAdded" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="PaymentMethod" />
+      <PropertyRef Name="Percentage" />
+      <PropertyRef Name="PlusFee" />
+    </Key>
+    <Property Name="DateAdded" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Percentage" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="PlusFee" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="fee" Type="decimal" Precision="35" Scale="11" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwRegistrationTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwRegistrationTotals">
+    <Key>
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Total" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwStudentTotals">
+    <Key>
+      <PropertyRef Name="classid" />
+    </Key>
+    <Property Name="classid" Type="int" Nullable="false" />
+    <Property Name="StudentCount" Type="int" />
+    <Property Name="TotalPaid" Type="money" />
+  </EntityType>
+  <Association Name="FK_ClassAttendees_ToClasses">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPayer">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="PayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPaymentType">
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPeople">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="ClassAttendees" Type="Self.ClassAttendees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendees">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToRegistrationTypes">
+    <End Role="RegistrationTypes" Type="Self.RegistrationTypes" Multiplicity="0..1" />
+    <End Role="ClassAttendees" Type="Self.ClassAttendees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendees">
+        <PropertyRef Name="RegistrationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Classes_ToBooks">
+    <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Classes_ToCourseFormat">
+    <End Role="CourseFormats" Type="Self.CourseFormats" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseFormats">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="CourseFormatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Classes_ToCourses">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCerts_Certificates">
+    <End Role="Certificates" Type="Self.Certificates" Multiplicity="1" />
+    <End Role="CourseCerts" Type="Self.CourseCerts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCerts">
+        <PropertyRef Name="CertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCerts_Course">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="CourseCerts" Type="Self.CourseCerts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCerts">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseFormats_ToQBAccounts">
+    <End Role="QBAccounts" Type="Self.QBAccounts" Multiplicity="0..1" />
+    <End Role="CourseFormats" Type="Self.CourseFormats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QBAccounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseFormats">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaterials_ToCourse">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="CourseMaterials" Type="Self.CourseMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseMaterials">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaterials_ToVendor">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="CourseMaterials" Type="Self.CourseMaterials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseMaterials">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventbriteEvents_ToEvents">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventbriteEvents" Type="Self.EventbriteEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventbriteEvents">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCost2Student_ToEvent">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventCost2Student" Type="Self.EventCost2Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventCost2Student">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_ToFacilitator">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="FacilitatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_ToFrequency">
+    <End Role="Frequency" Type="Self.Frequency" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frequency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="FrequencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStudents_Events">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventStudents" Type="Self.EventStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventStudents">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStudents_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="EventStudents" Type="Self.EventStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventStudents">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToEvent">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventTransaction" Type="Self.EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToPaymentMethod">
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+    <End Role="EventTransaction" Type="Self.EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToTransactionCategory">
+    <End Role="TransactionCategory" Type="Self.TransactionCategory" Multiplicity="0..1" />
+    <End Role="EventTransaction" Type="Self.EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="TransactionCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionComment_EventTransaction">
+    <End Role="EventTransaction" Type="Self.EventTransaction" Multiplicity="1" />
+    <End Role="EventTransactionComment" Type="Self.EventTransactionComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionComment">
+        <PropertyRef Name="EventTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_EventTransaction">
+    <End Role="EventTransaction" Type="Self.EventTransaction" Multiplicity="1" />
+    <End Role="EventTransactionStudent" Type="Self.EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="EventTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_People">
+    <End Role="People" Type="Self.People" Multiplicity="1" />
+    <End Role="EventTransactionStudent" Type="Self.EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_ToRegistrationType">
+    <End Role="RegistrationTypes" Type="Self.RegistrationTypes" Multiplicity="0..1" />
+    <End Role="EventTransactionStudent" Type="Self.EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="RegistrationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventVenues_ToEvents">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="EventVenues" Type="Self.EventVenues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventVenues">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventVenues_ToVenue">
+    <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+    <End Role="EventVenues" Type="Self.EventVenues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventVenues">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToClasses">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToPayer">
+    <End Role="People" Type="Self.People" Multiplicity="0..1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="PayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToPaymentType">
+    <End Role="PaymentMethods" Type="Self.PaymentMethods" Multiplicity="0..1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToQBAccounts">
+    <End Role="QBAccounts" Type="Self.QBAccounts" Multiplicity="0..1" />
+    <End Role="MiscTransactions" Type="Self.MiscTransactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QBAccounts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransactions">
+        <PropertyRef Name="QBAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonGroups_ToGroups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="PersonGroups" Type="Self.PersonGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonGroups">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonGroups_ToPeople">
+    <End Role="People" Type="Self.People" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PersonGroups" Type="Self.PersonGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="People">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonGroups">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venue_VenueType">
+    <End Role="VenueType" Type="Self.VenueType" Multiplicity="0..1" />
+    <End Role="Venue" Type="Self.Venue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venue">
+        <PropertyRef Name="VenueTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fhiModelStoreContainer">
+    <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BooksPerClass" EntityType="Self.BooksPerClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificates" EntityType="Self.Certificates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassAttendees" EntityType="Self.ClassAttendees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseCerts" EntityType="Self.CourseCerts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseFormats" EntityType="Self.CourseFormats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CourseMaterials" EntityType="Self.CourseMaterials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventbriteEvents" EntityType="Self.EventbriteEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventCost2Student" EntityType="Self.EventCost2Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventStudents" EntityType="Self.EventStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventTransaction" EntityType="Self.EventTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventTransactionComment" EntityType="Self.EventTransactionComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventTransactionStudent" EntityType="Self.EventTransactionStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventVenues" EntityType="Self.EventVenues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Frequency" EntityType="Self.Frequency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MiscTransactions" EntityType="Self.MiscTransactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethods" EntityType="Self.PaymentMethods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonGroups" EntityType="Self.PersonGroups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QBAccounts" EntityType="Self.QBAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCosts" EntityType="Self.StudentCosts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionCategory" EntityType="Self.TransactionCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VenueType" EntityType="Self.VenueType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwEventTransactions" EntityType="Self.vwEventTransactions" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwEventTransactions].[Id] AS [Id], 
+    [vwEventTransactions].[EventId] AS [EventId], 
+    [vwEventTransactions].[Description] AS [Description], 
+    [vwEventTransactions].[Amount] AS [Amount], 
+    [vwEventTransactions].[FHICredit] AS [FHICredit], 
+    [vwEventTransactions].[DateAdded] AS [DateAdded], 
+    [vwEventTransactions].[PaymentMethodId] AS [PaymentMethodId], 
+    [vwEventTransactions].[StudentId] AS [StudentId], 
+    [vwEventTransactions].[RegistrationTypeId] AS [RegistrationTypeId], 
+    [vwEventTransactions].[RegistrationType] AS [RegistrationType], 
+    [vwEventTransactions].[PaymentMethod] AS [PaymentMethod], 
+    [vwEventTransactions].[CategoryId] AS [CategoryId], 
+    [vwEventTransactions].[Category] AS [Category], 
+    [vwEventTransactions].[fee] AS [fee]
+    FROM [dbo].[vwEventTransactions] AS [vwEventTransactions]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwFullPeople" EntityType="Self.vwFullPeople" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwFullPeople].[Id] AS [Id], 
+    [vwFullPeople].[LastName] AS [LastName], 
+    [vwFullPeople].[FirstName] AS [FirstName], 
+    [vwFullPeople].[Email] AS [Email], 
+    [vwFullPeople].[Phone] AS [Phone], 
+    [vwFullPeople].[Street] AS [Street], 
+    [vwFullPeople].[Address2] AS [Address2], 
+    [vwFullPeople].[City] AS [City], 
+    [vwFullPeople].[State] AS [State], 
+    [vwFullPeople].[Zip] AS [Zip], 
+    [vwFullPeople].[Phone2] AS [Phone2], 
+    [vwFullPeople].[Comments] AS [Comments], 
+    [vwFullPeople].[Donor] AS [Donor], 
+    [vwFullPeople].[Student] AS [Student], 
+    [vwFullPeople].[Client] AS [Client], 
+    [vwFullPeople].[MinistryPartner] AS [MinistryPartner], 
+    [vwFullPeople].[MailChimp] AS [MailChimp]
+    FROM [dbo].[vwFullPeople] AS [vwFullPeople]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwGroups" EntityType="Self.vwGroups" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwGroups].[GroupName] AS [GroupName], 
+    [vwGroups].[FullName] AS [FullName], 
+    [vwGroups].[Id] AS [Id], 
+    [vwGroups].[LastName] AS [LastName], 
+    [vwGroups].[FirstName] AS [FirstName], 
+    [vwGroups].[Email] AS [Email], 
+    [vwGroups].[Phone] AS [Phone], 
+    [vwGroups].[Street] AS [Street], 
+    [vwGroups].[Address2] AS [Address2], 
+    [vwGroups].[City] AS [City], 
+    [vwGroups].[State] AS [State], 
+    [vwGroups].[Zip] AS [Zip], 
+    [vwGroups].[Phone2] AS [Phone2], 
+    [vwGroups].[Comments] AS [Comments]
+    FROM [dbo].[vwGroups] AS [vwGroups]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwMiscTotals" EntityType="Self.vwMiscTotals" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwMiscTotals].[ClassId] AS [ClassId], 
+    [vwMiscTotals].[Description] AS [Description], 
+    [vwMiscTotals].[PaymentMethod] AS [PaymentMethod], 
+    [vwMiscTotals].[TotalPaid] AS [TotalPaid]
+    FROM [dbo].[vwMiscTotals] AS [vwMiscTotals]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwPaymentExpenses" EntityType="Self.vwPaymentExpenses" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwPaymentExpenses].[DateAdded] AS [DateAdded], 
+    [vwPaymentExpenses].[Amount] AS [Amount], 
+    [vwPaymentExpenses].[Description] AS [Description], 
+    [vwPaymentExpenses].[PaymentMethod] AS [PaymentMethod], 
+    [vwPaymentExpenses].[Percentage] AS [Percentage], 
+    [vwPaymentExpenses].[PlusFee] AS [PlusFee], 
+    [vwPaymentExpenses].[fee] AS [fee]
+    FROM [dbo].[vwPaymentExpenses] AS [vwPaymentExpenses]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwRegistrationTotals" EntityType="Self.vwRegistrationTotals" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwRegistrationTotals].[ClassId] AS [ClassId], 
+    [vwRegistrationTotals].[Description] AS [Description], 
+    [vwRegistrationTotals].[Total] AS [Total]
+    FROM [dbo].[vwRegistrationTotals] AS [vwRegistrationTotals]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwStudentTotals" EntityType="Self.vwStudentTotals" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwStudentTotals].[classid] AS [classid], 
+    [vwStudentTotals].[StudentCount] AS [StudentCount], 
+    [vwStudentTotals].[TotalPaid] AS [TotalPaid]
+    FROM [dbo].[vwStudentTotals] AS [vwStudentTotals]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_ClassAttendees_ToClasses" Association="Self.FK_ClassAttendees_ToClasses">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPayer" Association="Self.FK_ClassAttendees_ToPayer">
+      <End Role="People" EntitySet="People" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPaymentType" Association="Self.FK_ClassAttendees_ToPaymentType">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPeople" Association="Self.FK_ClassAttendees_ToPeople">
+      <End Role="People" EntitySet="People" />
+      <End Role="ClassAttendees" EntitySet="ClassAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToRegistrationTypes" Association="Self.FK_ClassAttendees_ToRegistrationTypes">
+      <End Role="RegistrationTypes" EntitySet="RegistrationTypes" />
+      <End Role="ClassAttendees" EntitySet="ClassAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Classes_ToBooks" Association="Self.FK_Classes_ToBooks">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Classes_ToCourseFormat" Association="Self.FK_Classes_ToCourseFormat">
+      <End Role="CourseFormats" EntitySet="CourseFormats" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Classes_ToCourses" Association="Self.FK_Classes_ToCourses">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCerts_Certificates" Association="Self.FK_CourseCerts_Certificates">
+      <End Role="Certificates" EntitySet="Certificates" />
+      <End Role="CourseCerts" EntitySet="CourseCerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCerts_Course" Association="Self.FK_CourseCerts_Course">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CourseCerts" EntitySet="CourseCerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseFormats_ToQBAccounts" Association="Self.FK_CourseFormats_ToQBAccounts">
+      <End Role="QBAccounts" EntitySet="QBAccounts" />
+      <End Role="CourseFormats" EntitySet="CourseFormats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaterials_ToCourse" Association="Self.FK_CourseMaterials_ToCourse">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="CourseMaterials" EntitySet="CourseMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaterials_ToVendor" Association="Self.FK_CourseMaterials_ToVendor">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="CourseMaterials" EntitySet="CourseMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventbriteEvents_ToEvents" Association="Self.FK_EventbriteEvents_ToEvents">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventbriteEvents" EntitySet="EventbriteEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCost2Student_ToEvent" Association="Self.FK_EventCost2Student_ToEvent">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventCost2Student" EntitySet="EventCost2Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_ToFacilitator" Association="Self.FK_Events_ToFacilitator">
+      <End Role="People" EntitySet="People" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_ToFrequency" Association="Self.FK_Events_ToFrequency">
+      <End Role="Frequency" EntitySet="Frequency" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStudents_Events" Association="Self.FK_EventStudents_Events">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventStudents" EntitySet="EventStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStudents_People" Association="Self.FK_EventStudents_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="EventStudents" EntitySet="EventStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToEvent" Association="Self.FK_EventTransaction_ToEvent">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventTransaction" EntitySet="EventTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToPaymentMethod" Association="Self.FK_EventTransaction_ToPaymentMethod">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="EventTransaction" EntitySet="EventTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToTransactionCategory" Association="Self.FK_EventTransaction_ToTransactionCategory">
+      <End Role="TransactionCategory" EntitySet="TransactionCategory" />
+      <End Role="EventTransaction" EntitySet="EventTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionComment_EventTransaction" Association="Self.FK_EventTransactionComment_EventTransaction">
+      <End Role="EventTransaction" EntitySet="EventTransaction" />
+      <End Role="EventTransactionComment" EntitySet="EventTransactionComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_EventTransaction" Association="Self.FK_EventTransactionStudent_EventTransaction">
+      <End Role="EventTransaction" EntitySet="EventTransaction" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_People" Association="Self.FK_EventTransactionStudent_People">
+      <End Role="People" EntitySet="People" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_ToRegistrationType" Association="Self.FK_EventTransactionStudent_ToRegistrationType">
+      <End Role="RegistrationTypes" EntitySet="RegistrationTypes" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventVenues_ToEvents" Association="Self.FK_EventVenues_ToEvents">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="EventVenues" EntitySet="EventVenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventVenues_ToVenue" Association="Self.FK_EventVenues_ToVenue">
+      <End Role="Venue" EntitySet="Venue" />
+      <End Role="EventVenues" EntitySet="EventVenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToClasses" Association="Self.FK_MiscTransactions_ToClasses">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToPayer" Association="Self.FK_MiscTransactions_ToPayer">
+      <End Role="People" EntitySet="People" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToPaymentType" Association="Self.FK_MiscTransactions_ToPaymentType">
+      <End Role="PaymentMethods" EntitySet="PaymentMethods" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToQBAccounts" Association="Self.FK_MiscTransactions_ToQBAccounts">
+      <End Role="QBAccounts" EntitySet="QBAccounts" />
+      <End Role="MiscTransactions" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonGroups_ToGroups" Association="Self.FK_PersonGroups_ToGroups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="PersonGroups" EntitySet="PersonGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonGroups_ToPeople" Association="Self.FK_PersonGroups_ToPeople">
+      <End Role="People" EntitySet="People" />
+      <End Role="PersonGroups" EntitySet="PersonGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venue_VenueType" Association="Self.FK_Venue_VenueType">
+      <End Role="VenueType" EntitySet="VenueType" />
+      <End Role="Venue" EntitySet="Venue" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

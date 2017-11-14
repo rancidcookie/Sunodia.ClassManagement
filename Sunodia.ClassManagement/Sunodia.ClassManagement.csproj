@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{463AEB29-F553-458B-98B7-236F987422BB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sunodia.ClassManagement</RootNamespace>
+    <AssemblyName>Sunodia.ClassManagement</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/23674546-b4b5-428b-bfcf-1b17bd80a95f/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/FHI</ApplicationInsightsResourceId>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/23674546-b4b5-428b-bfcf-1b17bd80a95f/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/FHI</ApplicationInsightsAnnotationResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mailjet.Client, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mailjet.Api.1.0.1\lib\net45\Mailjet.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.0.0.4220, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.DependencyCollector, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector, Version=1.0.0.4231, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.Web, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Web.TelemetryChannel, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.TelemetryChannel.1.0.0\lib\net45\Microsoft.ApplicationInsights.Web.TelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Instrumentation.Extensions.Intercept, Version=0.17.0.194, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\lib\net45\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnalysisController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\ClassAttendeesController.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\CoursController.cs" />
+    <Compile Include="Controllers\CourseCertsController.cs" />
+    <Compile Include="Controllers\CourseFormatsController.cs" />
+    <Compile Include="Controllers\CourseMaterialsController.cs" />
+    <Compile Include="Controllers\EventbriteController.cs" />
+    <Compile Include="Controllers\EventStudentsController.cs" />
+    <Compile Include="Controllers\EventTransactionsController.cs" />
+    <Compile Include="Controllers\EventVenuesController.cs" />
+    <Compile Include="Controllers\FrequenciesController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentMethodsController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\PersonGroupsController.cs" />
+    <Compile Include="Controllers\QBAccountsController.cs" />
+    <Compile Include="Controllers\RegistrationTypesController.cs" />
+    <Compile Include="Controllers\StudentCostsController.cs" />
+    <Compile Include="Controllers\TransactionCategoriesController.cs" />
+    <Compile Include="Controllers\VenuesController.cs" />
+    <Compile Include="Extensions\EventExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AttendeeMetaData.cs" />
+    <Compile Include="Models\Book.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BooksPerClass.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Certificate.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassAttendee.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClassAttendeeViewModel.cs" />
+    <Compile Include="Models\ClassMetaData.cs" />
+    <Compile Include="Models\ClassReviewViewModel.cs" />
+    <Compile Include="Models\Cost2StudentMetaData.cs" />
+    <Compile Include="Models\Cours.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseCert.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseCertViewModel.cs" />
+    <Compile Include="Models\CourseFormat.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseMaterial.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CourseMaterialMetaData.cs" />
+    <Compile Include="Models\CourseMaterialViewModel.cs" />
+    <Compile Include="Models\CourseMetaData.cs" />
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventbriteEvent.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventCost2Student.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventStudent.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventTransaction.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventTransactionComment.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventTransactionMetaData.cs" />
+    <Compile Include="Models\EventTransactionStudent.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\eventTransactionViewModel.cs" />
+    <Compile Include="Models\EventVenue.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventVenueViewModel.cs" />
+    <Compile Include="Models\FHIData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FHIData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FHIData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FHIData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FHIData.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FHIDBMetaData.cs" />
+    <Compile Include="Models\FHILists.cs" />
+    <Compile Include="Models\Frequency.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MiscTransaction.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\modelExtensions.cs" />
+    <Compile Include="Models\PaymentMethod.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaymentMethodMetaData.cs" />
+    <Compile Include="Models\PeopleGroupViewModel.cs" />
+    <Compile Include="Models\PeopleMetaData.cs" />
+    <Compile Include="Models\Person.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PersonGroup.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PickClassViewModel.cs" />
+    <Compile Include="Models\QBAccount.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QBAccountMetaData.cs" />
+    <Compile Include="Models\RegistrationType.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentCost.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StudentCostViewModel.cs" />
+    <Compile Include="Models\Table.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransactionCategory.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vendor.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Venue.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VenueMetaData.cs" />
+    <Compile Include="Models\VenueType.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwEventTransaction.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwFullPeople.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwGroup.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwMiscTotal.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwPaymentExpens.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwRegistrationTotal.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwStudentTotal.cs">
+      <DependentUpon>FHIData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utility\Email\IEmail.cs" />
+    <Compile Include="Utility\Email\MailjetEmail.cs" />
+    <Compile Include="Utility\Eventbrite\Context.cs" />
+    <Compile Include="Utility\Eventbrite\Models\Attendee.cs" />
+    <Compile Include="Utility\Eventbrite\Models\BaseClasses.cs" />
+    <Compile Include="Utility\Eventbrite\Models\Events.cs" />
+    <Compile Include="Utility\Eventbrite\Models\Orders.cs" />
+    <Compile Include="Utility\Eventbrite\Models\Ticket.cs" />
+    <Compile Include="Utility\Eventbrite\Models\Venue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ChoEditableDropdown.css" />
+    <None Include="Content\images\fhi_logo_1x.png" />
+    <Content Include="Content\images\website-under-construction.jpg" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\FHIData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FHIData.edmx</DependentUpon>
+      <LastGenOutput>FHIData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FHIData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FHIData.edmx</DependentUpon>
+      <LastGenOutput>FHIData.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config" />
+    <EntityDeploy Include="Models\FHIData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FHIData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FHIData.edmx.diagram">
+      <DependentUpon>FHIData.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
+    <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia1 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\ChoEditableDropDown.js" />
+    <Content Include="Scripts\fhi.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.ecombobox.js" />
+    <Content Include="Scripts\jquery.eCombobox.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ZMcombobox.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\Cours\Create.cshtml" />
+    <Content Include="Views\Cours\Delete.cshtml" />
+    <Content Include="Views\Cours\Details.cshtml" />
+    <Content Include="Views\Cours\Edit.cshtml" />
+    <Content Include="Views\Cours\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\CourseFormats\Create.cshtml" />
+    <Content Include="Views\CourseFormats\Delete.cshtml" />
+    <Content Include="Views\CourseFormats\Details.cshtml" />
+    <Content Include="Views\CourseFormats\Edit.cshtml" />
+    <Content Include="Views\CourseFormats\Index.cshtml" />
+    <Content Include="Views\PaymentMethods\Create.cshtml" />
+    <Content Include="Views\PaymentMethods\Delete.cshtml" />
+    <Content Include="Views\PaymentMethods\Details.cshtml" />
+    <Content Include="Views\PaymentMethods\Edit.cshtml" />
+    <Content Include="Views\PaymentMethods\Index.cshtml" />
+    <Content Include="Views\QBAccounts\Create.cshtml" />
+    <Content Include="Views\QBAccounts\Delete.cshtml" />
+    <Content Include="Views\QBAccounts\Details.cshtml" />
+    <Content Include="Views\QBAccounts\Edit.cshtml" />
+    <Content Include="Views\QBAccounts\Index.cshtml" />
+    <Content Include="Views\RegistrationTypes\Create.cshtml" />
+    <Content Include="Views\RegistrationTypes\Delete.cshtml" />
+    <Content Include="Views\RegistrationTypes\Details.cshtml" />
+    <Content Include="Views\RegistrationTypes\Edit.cshtml" />
+    <Content Include="Views\RegistrationTypes\Index.cshtml" />
+    <Content Include="Views\ClassAttendees\Create.cshtml" />
+    <Content Include="Views\ClassAttendees\Delete.cshtml" />
+    <Content Include="Views\ClassAttendees\Details.cshtml" />
+    <Content Include="Views\ClassAttendees\Edit.cshtml" />
+    <Content Include="Views\ClassAttendees\Index.cshtml" />
+    <Content Include="Views\Home\ManageCourses.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Home\ManageLists.cshtml" />
+    <Content Include="Views\Analysis\Index.cshtml" />
+    <Content Include="Views\Analysis\PickClass.cshtml" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
+    <Content Include="Views\ClassAttendees\PickClass.cshtml" />
+    <Content Include="Views\ClassAttendees\CreateMisc.cshtml" />
+    <Content Include="Views\Analysis\Review.cshtml" />
+    <Content Include="Views\PersonGroups\Create.cshtml" />
+    <Content Include="Views\PersonGroups\Edit.cshtml" />
+    <Content Include="Views\PersonGroups\Index.cshtml" />
+    <Content Include="Views\CourseCerts\Create.cshtml" />
+    <Content Include="Views\CourseCerts\Delete.cshtml" />
+    <Content Include="Views\CourseCerts\Details.cshtml" />
+    <Content Include="Views\CourseCerts\Edit.cshtml" />
+    <Content Include="Views\CourseCerts\Index.cshtml" />
+    <Content Include="Views\CourseMaterials\Create.cshtml" />
+    <Content Include="Views\CourseMaterials\Delete.cshtml" />
+    <Content Include="Views\CourseMaterials\Details.cshtml" />
+    <Content Include="Views\CourseMaterials\Edit.cshtml" />
+    <Content Include="Views\CourseMaterials\Index.cshtml" />
+    <Content Include="Views\Venues\Create.cshtml" />
+    <Content Include="Views\Venues\Delete.cshtml" />
+    <Content Include="Views\Venues\Details.cshtml" />
+    <Content Include="Views\Venues\Edit.cshtml" />
+    <Content Include="Views\Venues\Index.cshtml" />
+    <Content Include="Views\EventStudents\Create.cshtml" />
+    <Content Include="Views\EventStudents\Delete.cshtml" />
+    <Content Include="Views\EventStudents\Details.cshtml" />
+    <Content Include="Views\EventStudents\Edit.cshtml" />
+    <Content Include="Views\EventStudents\Index.cshtml" />
+    <Content Include="Views\EventStudents\Search.cshtml" />
+    <Content Include="Views\EventVenues\Create.cshtml" />
+    <Content Include="Views\EventVenues\Delete.cshtml" />
+    <Content Include="Views\EventVenues\Details.cshtml" />
+    <Content Include="Views\EventVenues\Edit.cshtml" />
+    <Content Include="Views\EventVenues\Index.cshtml" />
+    <Content Include="Views\Events\Costs.cshtml" />
+    <Content Include="Views\Events\EditorTemplates\Event.cshtml" />
+    <Content Include="Views\EventStudents\Cost.cshtml" />
+    <Content Include="Views\EventTransactions\Create.cshtml" />
+    <Content Include="Views\EventTransactions\Delete.cshtml" />
+    <Content Include="Views\EventTransactions\Details.cshtml" />
+    <Content Include="Views\EventTransactions\Edit.cshtml" />
+    <Content Include="Views\EventTransactions\Index.cshtml" />
+    <Content Include="Views\TransactionCategories\Create.cshtml" />
+    <Content Include="Views\TransactionCategories\Delete.cshtml" />
+    <Content Include="Views\TransactionCategories\Details.cshtml" />
+    <Content Include="Views\TransactionCategories\Edit.cshtml" />
+    <Content Include="Views\TransactionCategories\Index.cshtml" />
+    <Content Include="Views\StudentCosts\Create.cshtml" />
+    <Content Include="Views\StudentCosts\Delete.cshtml" />
+    <Content Include="Views\StudentCosts\Details.cshtml" />
+    <Content Include="Views\StudentCosts\Edit.cshtml" />
+    <Content Include="Views\StudentCosts\Index.cshtml" />
+    <Content Include="Views\Frequencies\Create.cshtml" />
+    <Content Include="Views\Frequencies\Delete.cshtml" />
+    <Content Include="Views\Frequencies\Details.cshtml" />
+    <Content Include="Views\Frequencies\Edit.cshtml" />
+    <Content Include="Views\Frequencies\Index.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <None Include="Web.FHI.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Sunodia.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Eventbrite\" />
+    <Folder Include="Views\Group\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'FHI|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sunodia|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>27932</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:27932/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

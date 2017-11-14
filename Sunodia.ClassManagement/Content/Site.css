@@ -1,0 +1,58 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+td.red { color:red;}
+
+.table > thead > tr > td.balanced,
+.table > tbody > tr > td.balanced,
+.table > tfoot > tr > td.balanced,
+.table > thead > tr > th.balanced,
+.table > tbody > tr > th.balanced,
+.table > tfoot > tr > th.balanced,
+.table > thead > tr.balanced > td,
+.table > tbody > tr.balanced > td,
+.table > tfoot > tr.balanced > td,
+.table > thead > tr.balanced > th,
+.table > tbody > tr.balanced > th,
+.table > tfoot > tr.balanced > th {
+    background-color: #7CFC00;
+    border-color: #fbeed5;
+}
+
+.table > thead > tr > td.credit,
+.table > tbody > tr > td.credit,
+.table > tfoot > tr > td.credit,
+.table > thead > tr > th.credit,
+.table > tbody > tr > th.credit,
+.table > tfoot > tr > th.credit,
+.table > thead > tr.credit > td,
+.table > tbody > tr.credit > td,
+.table > tfoot > tr.credit > td,
+.table > thead > tr.credit > th,
+.table > tbody > tr.credit > th,
+.table > tfoot > tr.credit > th {
+    background-color: #FF0000;
+    border-color: #fbeed5;
+}

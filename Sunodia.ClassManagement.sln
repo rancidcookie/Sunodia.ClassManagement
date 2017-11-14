@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunodia.ClassManagement", "FHI\Sunodia.ClassManagement.csproj", "{463AEB29-F553-458B-98B7-236F987422BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stuff", "Stuff", "{34128619-FCFE-45AF-8937-B2F852D9F0A3}"
+	ProjectSection(SolutionItems) = preProject
+		admin-notes.txt = admin-notes.txt
+		Todo.txt = Todo.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SunodiaDB", "SunodiaDB\SunodiaDB.sqlproj", "{95F26A29-E31C-4D23-913E-08F5B5296BA9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		FHI|Any CPU = FHI|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Sunodia|Any CPU = Sunodia|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{463AEB29-F553-458B-98B7-236F987422BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.FHI|Any CPU.ActiveCfg = FHI|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.FHI|Any CPU.Build.0 = FHI|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia|Any CPU.ActiveCfg = Sunodia|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia|Any CPU.Build.0 = Sunodia|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.FHI|Any CPU.ActiveCfg = FHI|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.FHI|Any CPU.Build.0 = FHI|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia|Any CPU.ActiveCfg = Sunodia|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia|Any CPU.Build.0 = Sunodia|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.FHI|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.FHI|Any CPU.Build.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.FHI|Any CPU.Deploy.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.Build.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.Deploy.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
