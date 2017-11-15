@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-using eEvent = Eventbrite.Models.Event;
-using sEvent = FHI.Models.Event;
+using eEvent = Sunodia.ClassManagement.Utility.Eventbrite.Models.Event;
+using sEvent = Sunodia.ClassManagement.Models.Event;
 
 using Sunodia.ClassManagement.Models;
 

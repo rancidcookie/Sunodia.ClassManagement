@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Eventbrite;
+using Sunodia.ClassManagement.Utility.Eventbrite;
 
 namespace Tests
 {

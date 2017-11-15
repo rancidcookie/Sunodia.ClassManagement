@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="SunodiaDB.dll" />
-			<Metadata Name="FileName" Value="D:\MYDOCS\GIT\SUNODIA\SUNODIA\SUNODIADB\OBJ\DEBUG\SUNODIADB.DLL" />
+			<Metadata Name="FileName" Value="D:\MYDOCS\GIT\SUNODIA.CLASSMANAGEMENT\SUNODIADB\OBJ\DEBUG\SUNODIADB.DLL" />
 			<Metadata Name="AssemblyName" Value="SunodiaDB" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="D:\MyDocs\Git\Sunodia\Sunodia\SunodiaDB\obj\Debug\SunodiaDB.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\SunodiaDB.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

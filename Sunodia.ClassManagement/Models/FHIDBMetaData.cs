@@ -113,8 +113,8 @@ namespace Sunodia.ClassManagement.Models
             return retVal;
         }
 
-        public System.Data.Entity.DbSet<FHI.Models.ClassReviewViewModel> ClassReviewViewModels { get; set; }
+        public System.Data.Entity.DbSet<ClassReviewViewModel> ClassReviewViewModels { get; set; }
 
-        public System.Data.Entity.DbSet<FHI.Models.PeopleGroupViewModel> PeopleGroupViewModels { get; set; }
+        public System.Data.Entity.DbSet<PeopleGroupViewModel> PeopleGroupViewModels { get; set; }
     }
 }

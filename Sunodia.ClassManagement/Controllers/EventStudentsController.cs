@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using Sunodia.ClassManagement.Models;
-using Danware.Danmail;
+using Sunodia.ClassManagement.Utility.Email;
 
 namespace Sunodia.ClassManagement.Controllers
 {
@@ -202,7 +202,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             try
             {
-                Danware.Danmail.MailjetEmail emailer = new MailjetEmail();
+                MailjetEmail emailer = new MailjetEmail();
                 emailer.SendEmail(amountDue, eventDue, email);
             }
             catch(Exception ex)

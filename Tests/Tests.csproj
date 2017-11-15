@@ -76,6 +76,12 @@
     <Compile Include="EventbriteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sunodia.ClassManagement\Sunodia.ClassManagement.csproj">
+      <Project>{463aeb29-f553-458b-98b7-236f987422bb}</Project>
+      <Name>Sunodia.ClassManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -1,7 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using Sunodia.ClassManagement;
 
-[assembly: OwinStartupAttribute(typeof(FHI.Startup))]
+[assembly: OwinStartupAttribute(typeof(Startup))]
 namespace Sunodia.ClassManagement
 {
     public partial class Startup
