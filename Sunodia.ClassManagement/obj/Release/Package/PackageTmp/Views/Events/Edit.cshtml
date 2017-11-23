@@ -1,0 +1,283 @@
+﻿@model Sunodia.ClassManagement.Models.Event
+    @using Sunodia.ClassManagement.Extensions;
+
+@{
+
+    PaymentExpenses pExpenses = Model.CalculatPaymentExpenses();
+
+    ViewBag.Title = "Edit";
+    decimal totalExpense = pExpenses.TotalExpense();
+    //decimal totalCredit = 0;
+    decimal incomeDue = 0;
+    decimal incomeRecieved = 0;
+
+    foreach (var trx in Model.EventTransactions)
+    {
+        if (trx.FHICredit)
+        {
+            if(trx.EventTransactionStudents.Count > 0)
+            {
+                incomeDue += trx.Amount;
+            }
+            //totalCredit += trx.Amount;
+        }
+        else
+        {
+            if (trx.EventTransactionStudents.Count > 0)
+            {
+                incomeRecieved += trx.Amount;
+            }
+            else
+            {
+                totalExpense += trx.Amount;
+            }
+        }
+    }
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Event</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.NickName, null, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NickName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.NickName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cours, null, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseId", null, htmlAttributes: new { @class = "form-control" })
+                
+                @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartDate, "", new { @class = "date" })
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndDate, "", new { @class = "date" })
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FrequencyId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FrequencyId", null, "Select Frequency", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Frequency1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CourseType, Sunodia.ClassManagement.Models.SunodiaLists.ClassType, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CourseType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FacilitatorId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(model => model.FacilitatorId, ViewBag.FacilitatorId, htmlAttributes: new { @class = "form-control" })*@
+                @Html.DropDownList("FacilitatorId", null, "Select Facilitator", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FacilitatorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>Income Due</th>
+                <th>Income Received</th>
+                <th>Expense Incurred by Sunodía</th>
+                <th>Net Profit</th>
+            </tr>
+            <tr>
+                <td>@string.Format("{0:c}", incomeDue)</td>
+                <td>@string.Format("{0:c}", incomeRecieved)</td>
+                <td>@string.Format("{0:c}", totalExpense)</td>
+                <td>@string.Format("{0:c}", incomeDue - totalExpense)</td>
+            </tr>
+        </table>
+        <div>
+            @Html.ActionLink("Back to Event List", "Index")
+        </div>
+        <hr />
+        <div class="form-horizontal">
+            <h4>Venues</h4>
+            <div>
+                @Html.ActionLink("Manage", "Index", "EventVenues", new { EventId = Model.Id }, null)
+            </div>
+            <table class="table">
+
+                @foreach (var venue in Model.EventVenues)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => venue.Venue.Name, new { @class = "control-label col-md-2" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => venue.Venue.Address1, new { @class = "control-label col-md-2" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => venue.Venue.City, new { @class = "control-label col-md-2" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <hr />
+        <div class="form-horizontal">
+            <h4>Expenses Incurred by Sunodía</h4>
+            <div>
+                @Html.ActionLink("Manage", "Index", "EventTransactions", new { EventId = Model.Id }, null)
+            </div>
+            <table class="table">
+                @{ decimal cost1 = 0; }
+                @foreach (var expense in Model.EventTransactions.Where(x=>x.EventTransactionStudents.Count()<1))
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => expense.Description, new { @class = "control-label col-md-2" })
+                        </td>
+                        <td>
+                            @if (expense.FHICredit)
+                            {
+                                @Html.DisplayFor(modelItem => expense.Amount)
+                                cost1 -= expense.Amount;
+                            }
+                        </td>
+                        <td>
+                            @if (!expense.FHICredit)
+                            {
+                                @Html.DisplayFor(modelItem => expense.Amount)
+                                cost1 += expense.Amount;
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (pExpenses.TotalExpense() > 0)
+                {
+                    cost1 += pExpenses.TotalExpense();
+                    <tr><td>Total Fees</td><td></td><td>@string.Format("{0:c}", pExpenses.TotalExpense())</td></tr>
+                }
+                
+                <tr><td>Total Expenses</td><td></td><td>@string.Format("{0:c}", cost1)</td></tr>
+            </table>
+        </div>
+        <hr />
+
+        <div class="form-horizontal">
+            <h4>Student Costs</h4>
+            <h5>Typical Costs for this event</h5>
+            <div>
+                @Html.ActionLink("Manage", "Costs", new { Id = Model.Id }, null)
+            </div>
+            <table class="table">
+                
+                @foreach (var cost in Model.EventCost2Student)
+                {
+                    
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => cost.CostDescription, new { @class = "control-label col-md-2" })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => cost.Cost, new { @class = "control-label col-md-2" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <hr />
+        <div class="form-horizontal">
+            <h4>Students</h4>
+            <div>
+                @Html.ActionLink("Manage", "Search", "EventStudents", new { EventId = Model.Id }, null)
+            </div>
+            <table class="table">
+
+    @foreach (var student in Model.EventStudents)
+    {
+        decimal cost = 0;
+        //foreach (var cost in Model.EventTransactions.First().EventTransactionStudents.Where(x => x.StudentId == student.StudentId))
+        //    {
+        foreach(var trx in student.Event.EventTransactions)
+        {
+            if (trx.EventTransactionStudents.Count() > 0)
+            {
+                if (trx.EventTransactionStudents.FirstOrDefault().StudentId == student.StudentId)
+                {
+                    if (trx.FHICredit)
+                    {
+                        cost -= trx.Amount;
+                    }
+                    else
+                    {
+                        cost += trx.Amount;
+                    }
+                }
+            }
+
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => student.Person.FirstName, new { @class = "control-label col-md-2" }) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.Person.LastName, new { @class = "control-label col-md-2" }) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => student.Person.Email, new { @class = "control-label col-md-2" }) 
+            </td>
+            <td>
+                @string.Format("{0:c}",cost)
+            </td>
+            <td>
+                @Html.ActionLink("Manage Acct", "Cost", "EventStudents", new { EventId = Model.Id, StudentId = student.Person.Id  }, null)
+            </td>
+        </tr>
+    }
+        </table>        
+        </div>
+        
+    </div>
+}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("tr:contains('$0.00')").addClass('balanced');
+            $("tr:contains('($')").addClass('credit');
+        
+    });
+</script>
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+}

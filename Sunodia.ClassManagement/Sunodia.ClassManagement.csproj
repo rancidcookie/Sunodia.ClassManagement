@@ -458,6 +458,8 @@
       <DependentUpon>sunodiaData.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FindingHomeInstitute - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\FindingHomeInstitute - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
     <None Include="Properties\PublishProfiles\sunodia - FTP.pubxml" />

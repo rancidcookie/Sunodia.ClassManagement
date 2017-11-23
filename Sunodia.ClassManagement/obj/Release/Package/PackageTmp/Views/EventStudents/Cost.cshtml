@@ -1,0 +1,132 @@
+﻿@model Sunodia.ClassManagement.Models.StudentCostViewModel
+
+@{
+    ViewBag.Title = "Student Costs";
+    decimal cost = 0;
+    decimal credit = 0;
+    decimal balance = 0;
+}
+
+<h2>Manage Charges for @Model.Student.FirstName @Model.Student.LastName for @Model.Event.NickName</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Student Costs
+        </th>
+        <th>
+            Amount Due
+        </th>
+        <th>
+            Amount Paid
+        </th>
+        <th>
+            Payment Method
+        </th>
+        <th>
+            Date Added
+        </th>
+    </tr>
+
+    @foreach (var item in Model.StudentTransactions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.FHICredit)
+                {
+                    @Html.DisplayFor(modelItem => item.Amount)
+                    credit -= item.Amount;
+                    balance -= item.Amount;
+                }
+            </td>
+            <td>
+                @if (!item.FHICredit)
+                {
+                    @Html.DisplayFor(modelItem => item.Amount)
+                    cost += item.Amount;
+                    balance += item.Amount;
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.ActionLink("Remove", "DeleteCost", new { Id = item.Id })
+            </td>
+        </tr>
+    }
+
+    @*@using (Html.BeginForm("Cost", "EventStudents", FormMethod.Post))*@
+        @using (Html.BeginForm("Cost", "EventStudents", FormMethod.Post))
+        {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(s => s.EventId)
+            @Html.HiddenFor(s => s.Student.Id)
+        <tr>
+            <td>
+                    @Html.DropDownListFor(s=>s.StudentTransactions.ElementAtOrDefault(100).Description,Model.EventDescs, new { @class = "form-control" })
+            </td>
+            <td class="amount">
+                @Html.EditorFor(s => s.StudentTransactions.ElementAtOrDefault(100).Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(s => s.StudentTransactions.ElementAtOrDefault(100).Amount, "", new { @class = "text-danger" })
+            </td>
+            <td class="amount">
+                @Html.EditorFor(s => s.StudentTransactions.ElementAtOrDefault(100).Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(s => s.StudentTransactions.ElementAtOrDefault(100).Amount, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.DropDownListFor(s => s.StudentTransactions.ElementAtOrDefault(100).PaymentMethodId, Model.PaymentTypes, "", new { @class = "form-control" })
+            </td>
+            <td>
+                <input type="submit" value="Add" class="btn btn-default" />
+            </td>
+        </tr> 
+        <tr><td></td></tr>
+                }
+    <tr>
+        <td></td>
+        <td>TOTAL</td>
+        <td>@string.Format("{0:c}", credit)</td>
+        <td>@string.Format("{0:c}", cost)</td>
+        <td><b>Account Balance: @string.Format("{0:c}", balance)</b></td>
+    </tr>
+
+</table>
+<div>
+    @if(string.IsNullOrEmpty(Model.Student.Email))
+    {
+        <p>No Email</p>
+    }
+    else
+    {
+        <p><a href="@Url.Action("Email", "EventStudents", new { eventId = ViewBag.EventId, studentId = Model.Student.Id, amountDue = string.Format("{0:c}", balance) }) "class="btn btn-primary btn-lg">Send Payment Reminder &raquo;</a></p>
+    }
+
+    
+    @Html.ActionLink("Back to Event", "Edit","Events", new { id = ViewBag.EventId },null)
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#Description").combobox();
+    });
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("tr:contains('$0.00')").addClass('balanced');
+            $("tr:contains('($')").addClass('credit');
+
+        });
+
+</script>
+
+
+

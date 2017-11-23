@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\FHI\Package\PackageTmp" />
+  <setAcl path="D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\FHI\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\FHI\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>
