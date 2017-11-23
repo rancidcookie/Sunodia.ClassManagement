@@ -19,9 +19,9 @@ D:\MyDocs\Git\Sunodia\Sunodia\SunodiaDB\obj\Debug\predeploy.sql
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\bin\Debug\SunodiaDB.dacpac
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\bin\Debug\SunodiaDB.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\bin\Debug\SunodiaDB.pdb
-D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\SunodiaDB.dll
-D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\SunodiaDB.pdb
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\Model.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\refactor.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\postdeploy.sql
 D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\predeploy.sql
+D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\SunodiaDB.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\SunodiaDB\obj\Debug\SunodiaDB.pdb

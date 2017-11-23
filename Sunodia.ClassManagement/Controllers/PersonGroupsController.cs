@@ -9,7 +9,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class PersonGroupsController : Controller
     {
-        private fhiEntities db = new fhiEntities();
+        private sunodiaEntities db = new sunodiaEntities();
         // GET: PersonGroups
         public ActionResult Index(int? PersonId)
         {
