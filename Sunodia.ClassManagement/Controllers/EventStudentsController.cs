@@ -17,7 +17,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class EventStudentsController : Controller
     {
-        private fhiEntities db = new fhiEntities();
+        private sunodiaEntities db = new sunodiaEntities();
 
         // GET: EventStudents
         public ActionResult Index(int? eventId)
@@ -107,7 +107,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             ViewBag.EventId = EventId;
             ViewBag.EventNickName = myEvent.NickName;
-            return View(students);
+            return View(students.ToList());
         }
 
         [HttpPost]
@@ -194,7 +194,7 @@ namespace Sunodia.ClassManagement.Controllers
         }
 
 
-        public async Task<ActionResult> Email(int? studentId, int? eventId, string amountDue)
+        public ActionResult Email(int? studentId, int? eventId, string amountDue)
         {
             var email = db.People.Where(x => x.Id == studentId).First().Email;
             var eventDue = db.Events.Where(x => x.Id == eventId).First().NickName;

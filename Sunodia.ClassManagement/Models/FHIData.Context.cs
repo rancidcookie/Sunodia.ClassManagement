@@ -13,10 +13,10 @@ namespace Sunodia.ClassManagement.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class fhiEntities : DbContext
+    public partial class sunodiaEntities : DbContext
     {
-        public fhiEntities()
-            : base("name=fhiEntities")
+        public sunodiaEntities()
+            : base("name=sunodiaEntities")
         {
         }
     
