@@ -69,3 +69,6 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Microsoft.Owin.Host.System
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.pdb
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Mailjet.Client.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Newtonsoft.Json.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Newtonsoft.Json.xml

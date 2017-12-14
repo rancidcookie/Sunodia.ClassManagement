@@ -56,3 +56,7 @@ td.red { color:red;}
     background-color: #FF0000;
     border-color: #fbeed5;
 }
+
+.ebicon {
+    content: "\2b";
+}

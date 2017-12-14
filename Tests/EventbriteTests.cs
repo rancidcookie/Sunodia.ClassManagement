@@ -12,7 +12,7 @@ namespace Tests
         [TestMethod]
         public void CanGetOrders()
         {
-            Context context = new Context();
+            EBContext context = new EBContext();
             var orders = context.GetOrders("34912353790");
 
             Assert.AreEqual("", orders.orders.First().name);
@@ -22,8 +22,8 @@ namespace Tests
         [TestMethod]
         public void CanGetEvents()
         {
-            Context context = new Context();
-            DateTime newerThan = new DateTime(2012, 1, 1);
+            EBContext context = new EBContext();
+            DateTime newerThan = new DateTime(2017, 1, 1);
             var events = context.GetEventsNewerThan(newerThan);
 
 
@@ -32,7 +32,7 @@ namespace Tests
         [TestMethod]
         public void CanGetEvent()
         {
-            Context context = new Context();
+            EBContext context = new EBContext();
             var events = context.GetEvent("34912353790");
 
             Assert.AreEqual("", events.name);
@@ -40,7 +40,7 @@ namespace Tests
         [TestMethod]
         public void CanGetVenue()
         {
-            Context context = new Context();
+            EBContext context = new EBContext();
             var venue = context.GetVenue("21687115");
 
             Assert.AreEqual("Sunodía Prayer Counseling", venue.name);

@@ -1,16 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sunodiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="QBAccount">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="QBAccount1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="IsCredit" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CourseFormats" Relationship="sunodiaModel.FK_CourseFormats_ToQBAccounts" FromRole="QBAccount" ToRole="CourseFormat" />
-    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_MiscTransactions_ToQBAccounts" FromRole="QBAccount" ToRole="MiscTransaction" />
-  </EntityType>
   <EntityType Name="RegistrationType">
     <Key>
       <PropertyRef Name="Id" />
@@ -21,7 +10,6 @@
     <NavigationProperty Name="EventTransactionStudents" Relationship="sunodiaModel.FK_EventTransactionStudent_ToRegistrationType" FromRole="RegistrationType" ToRole="EventTransactionStudent" />
   </EntityType>
   <EntityContainer Name="sunodiaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="QBAccounts" EntityType="Self.QBAccount" />
     <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationType" />
     <EntitySet Name="vwRegistrationTotals" EntityType="sunodiaModel.vwRegistrationTotal" />
     <EntitySet Name="vwStudentTotals" EntityType="sunodiaModel.vwStudentTotal" />
@@ -48,8 +36,8 @@
     <EntitySet Name="PaymentMethods" EntityType="sunodiaModel.PaymentMethod" />
     <EntitySet Name="People" EntityType="sunodiaModel.Person" />
     <EntitySet Name="PersonGroups" EntityType="sunodiaModel.PersonGroup" />
+    <EntitySet Name="QBAccounts" EntityType="sunodiaModel.QBAccount" />
     <EntitySet Name="StudentCosts" EntityType="sunodiaModel.StudentCost" />
-    <EntitySet Name="Tables" EntityType="sunodiaModel.Table" />
     <EntitySet Name="TransactionCategories" EntityType="sunodiaModel.TransactionCategory" />
     <EntitySet Name="Vendors" EntityType="sunodiaModel.Vendor" />
     <EntitySet Name="Venues" EntityType="sunodiaModel.Venue" />
@@ -57,7 +45,6 @@
     <EntitySet Name="vwEventTransactions" EntityType="sunodiaModel.vwEventTransaction" />
     <EntitySet Name="vwFullPeoples" EntityType="sunodiaModel.vwFullPeople" />
     <EntitySet Name="vwGroups" EntityType="sunodiaModel.vwGroup" />
-    <EntitySet Name="vwPaymentExpenses" EntityType="sunodiaModel.vwPaymentExpens" />
     <AssociationSet Name="FK_Classes_ToBooks" Association="sunodiaModel.FK_Classes_ToBooks">
       <End Role="Book" EntitySet="Books" />
       <End Role="Event" EntitySet="Events" />
@@ -323,9 +310,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EventbriteEventId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EventbriteEventURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EventbriteEventURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventbriteEvents_ToEvents" FromRole="EventbriteEvent" ToRole="Event" />
   </EntityType>
@@ -519,6 +506,17 @@
     <NavigationProperty Name="Group" Relationship="sunodiaModel.FK_PersonGroups_ToGroups" FromRole="PersonGroup" ToRole="Group" />
     <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_PersonGroups_ToPeople" FromRole="PersonGroup" ToRole="Person" />
   </EntityType>
+  <EntityType Name="QBAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="QBAccount1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsCredit" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CourseFormats" Relationship="sunodiaModel.FK_CourseFormats_ToQBAccounts" FromRole="QBAccount" ToRole="CourseFormat" />
+    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_MiscTransactions_ToQBAccounts" FromRole="QBAccount" ToRole="MiscTransaction" />
+  </EntityType>
   <EntityType Name="StudentCost">
     <Key>
       <PropertyRef Name="Id" />
@@ -526,13 +524,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DefaultAmount" Type="Decimal" Precision="19" Scale="4" />
-  </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TransactionCategory">
     <Key>
@@ -638,23 +629,6 @@
     <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="vwPaymentExpens">
-    <Key>
-      <PropertyRef Name="DateAdded" />
-      <PropertyRef Name="Amount" />
-      <PropertyRef Name="Description" />
-      <PropertyRef Name="PaymentMethod" />
-      <PropertyRef Name="Percentage" />
-      <PropertyRef Name="PlusFee" />
-    </Key>
-    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PaymentMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Percentage" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-    <Property Name="PlusFee" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-    <Property Name="fee" Type="Decimal" Precision="35" Scale="11" />
   </EntityType>
   <Association Name="FK_Classes_ToBooks">
     <End Type="sunodiaModel.Book" Role="Book" Multiplicity="0..1" />

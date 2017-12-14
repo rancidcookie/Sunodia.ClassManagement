@@ -202,8 +202,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             try
             {
-                MailjetEmail emailer = new MailjetEmail();
-                emailer.SendEmail(amountDue, eventDue, email);
+                MailjetEmail.SendEmail(amountDue, eventDue, email).Wait();
             }
             catch(Exception ex)
             {

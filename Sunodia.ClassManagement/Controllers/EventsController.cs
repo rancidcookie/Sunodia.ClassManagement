@@ -210,7 +210,7 @@ namespace Sunodia.ClassManagement.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var eContext = new Context();
+            //var eContext = new EBContext();
 
             sEvent @class = db.Events.Find(id);
             if (@class == null)

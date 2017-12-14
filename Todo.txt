@@ -2,18 +2,7 @@ So we're going to change the Registration types to Default Student Costs
 In manage event update the "Typical Costs" to use the pull down from StudentCosts
 In manage student, when you pick something from the list it adds the cost
 
-Hello,
-
-This is a reminder from Sunodía Prayer Counseling that you have a payment due of $[amount] for [event name]. You can send your payment online at [link]
-        or pay in-person via cash, check, or credit card. 
-
-If you have any questions, or if this reminder was sent in error, please contact us at sunodia.prayer @gmail.com.
-
-
-Amount Due should not include student amounts - onlyexpenses should show up in expeses
-
-Fees is not working
-Can we load eventbrite registrants
+When you are done linking or unlinking go back to the event specific page
 
 
 í =  alt 237

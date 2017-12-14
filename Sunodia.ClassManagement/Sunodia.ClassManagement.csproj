@@ -228,6 +228,7 @@
     <Compile Include="Controllers\TransactionCategoriesController.cs" />
     <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
+    <Compile Include="Extensions\RazorExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -302,6 +303,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LinkEventsViewModel.cs" />
     <Compile Include="Models\sunodiaData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -399,6 +401,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ChoEditableDropdown.css" />
     <None Include="Content\images\fhi_logo_1x.png" />
+    <Content Include="Content\images\ebicon-32x32.png" />
+    <Content Include="Content\images\eventbrite-logo-vector.png" />
     <Content Include="Content\images\website-under-construction.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -447,6 +451,8 @@
       <DependentUpon>sunodiaData.edmx</DependentUpon>
       <LastGenOutput>FHIData.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\sunodiaData.edmx.sql" />
+    <Content Include="Models\sunodiaData2.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
@@ -485,7 +491,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ZMcombobox.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -626,6 +634,8 @@
     <Content Include="Views\Frequencies\Edit.cshtml" />
     <Content Include="Views\Frequencies\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Eventbrite\Index.cshtml" />
+    <Content Include="Views\Eventbrite\LinkEvent.cshtml" />
     <None Include="Web.FHI.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -635,7 +645,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Eventbrite\" />
     <Folder Include="Views\Group\" />
   </ItemGroup>
   <ItemGroup>
