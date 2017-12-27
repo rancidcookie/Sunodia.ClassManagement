@@ -27,387 +27,374 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vwMiscTotals">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwMiscTotal)">
-        <MappingFragment StoreEntitySet="vwMiscTotals">
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Books">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Book)">
+      <EntityTypeMapping TypeName="sunodiaModel.Book">
         <MappingFragment StoreEntitySet="Books">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BooksPerClasses">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.BooksPerClass)">
-        <MappingFragment StoreEntitySet="BooksPerClasses">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+      <EntityTypeMapping TypeName="sunodiaModel.BooksPerClass">
+        <MappingFragment StoreEntitySet="BooksPerClass">
           <ScalarProperty Name="Charge" ColumnName="Charge" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Certificates">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Certificate)">
+      <EntityTypeMapping TypeName="sunodiaModel.Certificate">
         <MappingFragment StoreEntitySet="Certificates">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CertName" ColumnName="CertName" />
           <ScalarProperty Name="CertDescription" ColumnName="CertDescription" />
+          <ScalarProperty Name="CertName" ColumnName="CertName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ClassAttendees">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.ClassAttendee)">
+      <EntityTypeMapping TypeName="sunodiaModel.ClassAttendee">
         <MappingFragment StoreEntitySet="ClassAttendees">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
-          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
-          <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
-          <ScalarProperty Name="Attending" ColumnName="Attending" />
-          <ScalarProperty Name="QBDate" ColumnName="QBDate" />
           <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="QBDate" ColumnName="QBDate" />
+          <ScalarProperty Name="Attending" ColumnName="Attending" />
+          <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CourseCerts">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.CourseCert)">
+      <EntityTypeMapping TypeName="sunodiaModel.CourseCert">
         <MappingFragment StoreEntitySet="CourseCerts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CertId" ColumnName="CertId" />
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CertId" ColumnName="CertId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CourseFormats">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.CourseFormat)">
+      <EntityTypeMapping TypeName="sunodiaModel.CourseFormat">
         <MappingFragment StoreEntitySet="CourseFormats">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Format" ColumnName="Format" />
           <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CourseMaterials">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.CourseMaterial)">
+      <EntityTypeMapping TypeName="sunodiaModel.CourseMaterial">
         <MappingFragment StoreEntitySet="CourseMaterials">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
-          <ScalarProperty Name="CostToStudent" ColumnName="CostToStudent" />
-          <ScalarProperty Name="CostToOrg" ColumnName="CostToOrg" />
-          <ScalarProperty Name="PurchaseOptions" ColumnName="PurchaseOptions" />
           <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="PurchaseOptions" ColumnName="PurchaseOptions" />
+          <ScalarProperty Name="CostToOrg" ColumnName="CostToOrg" />
+          <ScalarProperty Name="CostToStudent" ColumnName="CostToStudent" />
+          <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Cours)">
+      <EntityTypeMapping TypeName="sunodiaModel.Cours">
         <MappingFragment StoreEntitySet="Courses">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
-          <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
-          <ScalarProperty Name="Cert" ColumnName="Cert" />
-          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Cert" ColumnName="Cert" />
+          <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventbriteEvents">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventbriteEvent)">
+      <EntityTypeMapping TypeName="sunodiaModel.EventbriteEvent">
         <MappingFragment StoreEntitySet="EventbriteEvents">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventbriteEventId" ColumnName="EventbriteEventId" />
-          <ScalarProperty Name="EventbriteEventURL" ColumnName="EventbriteEventURL" />
           <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventbriteEventURL" ColumnName="EventbriteEventURL" />
+          <ScalarProperty Name="EventbriteEventId" ColumnName="EventbriteEventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventCost2Student">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventCost2Student)">
+      <EntityTypeMapping TypeName="sunodiaModel.EventCost2Student">
         <MappingFragment StoreEntitySet="EventCost2Student">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
-          <ScalarProperty Name="CostDescription" ColumnName="CostDescription" />
-          <ScalarProperty Name="Cost" ColumnName="Cost" />
           <ScalarProperty Name="Required" ColumnName="Required" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CostDescription" ColumnName="CostDescription" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Events">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Event)">
+      <EntityTypeMapping TypeName="sunodiaModel.Event">
         <MappingFragment StoreEntitySet="Events">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-          <ScalarProperty Name="CourseDate" ColumnName="CourseDate" />
-          <ScalarProperty Name="MaterialCost" ColumnName="MaterialCost" />
-          <ScalarProperty Name="CourseFormatId" ColumnName="CourseFormatId" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="BookCost" ColumnName="BookCost" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-          <ScalarProperty Name="QuickBooksDate" ColumnName="QuickBooksDate" />
-          <ScalarProperty Name="Complete" ColumnName="Complete" />
-          <ScalarProperty Name="RegistrationCost" ColumnName="RegistrationCost" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
-          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
-          <ScalarProperty Name="NickName" ColumnName="NickName" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="FacilitatorId" ColumnName="FacilitatorId" />
           <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+          <ScalarProperty Name="FacilitatorId" ColumnName="FacilitatorId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventStudents">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventStudent)">
+      <EntityTypeMapping TypeName="sunodiaModel.EventStudent">
         <MappingFragment StoreEntitySet="EventStudents">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
           <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventTransactions">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventTransaction)">
-        <MappingFragment StoreEntitySet="EventTransactions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="FHICredit" ColumnName="FHICredit" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
-          <ScalarProperty Name="TransactionCategoryId" ColumnName="TransactionCategoryId" />
+      <EntityTypeMapping TypeName="sunodiaModel.EventTransaction">
+        <MappingFragment StoreEntitySet="EventTransaction">
           <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="TransactionCategoryId" ColumnName="TransactionCategoryId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FHICredit" ColumnName="FHICredit" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventTransactionComments">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventTransactionComment)">
-        <MappingFragment StoreEntitySet="EventTransactionComments">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventTransactionId" ColumnName="EventTransactionId" />
+      <EntityTypeMapping TypeName="sunodiaModel.EventTransactionComment">
+        <MappingFragment StoreEntitySet="EventTransactionComment">
           <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="EventTransactionId" ColumnName="EventTransactionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventTransactionStudents">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventTransactionStudent)">
-        <MappingFragment StoreEntitySet="EventTransactionStudents">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventTransactionId" ColumnName="EventTransactionId" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+      <EntityTypeMapping TypeName="sunodiaModel.EventTransactionStudent">
+        <MappingFragment StoreEntitySet="EventTransactionStudent">
           <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="EventTransactionId" ColumnName="EventTransactionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventVenues">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.EventVenue)">
+      <EntityTypeMapping TypeName="sunodiaModel.EventVenue">
         <MappingFragment StoreEntitySet="EventVenues">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
           <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Frequencies">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Frequency)">
-        <MappingFragment StoreEntitySet="Frequencies">
+      <EntityTypeMapping TypeName="sunodiaModel.Frequency">
+        <MappingFragment StoreEntitySet="Frequency">
+          <ScalarProperty Name="Frequency1" ColumnName="Frequency" />
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Frequency1" ColumnName="Frequency1" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Groups">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Group)">
+      <EntityTypeMapping TypeName="sunodiaModel.Group">
         <MappingFragment StoreEntitySet="Groups">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MiscTransactions">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.MiscTransaction)">
+      <EntityTypeMapping TypeName="sunodiaModel.MiscTransaction">
         <MappingFragment StoreEntitySet="MiscTransactions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
-          <ScalarProperty Name="Paid" ColumnName="Paid" />
-          <ScalarProperty Name="QBDate" ColumnName="QBDate" />
-          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
-          <ScalarProperty Name="QBAccount" ColumnName="QBAccount" />
           <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="QBAccount" ColumnName="QBAccount" />
+          <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+          <ScalarProperty Name="QBDate" ColumnName="QBDate" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="PayerId" ColumnName="PayerId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PaymentMethods">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.PaymentMethod)">
+      <EntityTypeMapping TypeName="sunodiaModel.PaymentMethod">
         <MappingFragment StoreEntitySet="PaymentMethods">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PaymentMethod1" ColumnName="PaymentMethod1" />
-          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
           <ScalarProperty Name="PlusFee" ColumnName="PlusFee" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="PaymentMethod1" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="People">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Person)">
+      <EntityTypeMapping TypeName="sunodiaModel.Person">
         <MappingFragment StoreEntitySet="People">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="Address2" ColumnName="Address2" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
-          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PersonGroups">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.PersonGroup)">
+      <EntityTypeMapping TypeName="sunodiaModel.PersonGroup">
         <MappingFragment StoreEntitySet="PersonGroups">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
           <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="QBAccounts">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.QBAccount)">
+      <EntityTypeMapping TypeName="sunodiaModel.QBAccount">
         <MappingFragment StoreEntitySet="QBAccounts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="QBAccount1" ColumnName="QBAccount1" />
           <ScalarProperty Name="IsCredit" ColumnName="IsCredit" />
+          <ScalarProperty Name="QBAccount1" ColumnName="QBAccount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="StudentCosts">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.StudentCost)">
+      <EntityTypeMapping TypeName="sunodiaModel.StudentCost">
         <MappingFragment StoreEntitySet="StudentCosts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="DefaultAmount" ColumnName="DefaultAmount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="sunodiaModel.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TransactionCategories">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.TransactionCategory)">
-        <MappingFragment StoreEntitySet="TransactionCategories">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+      <EntityTypeMapping TypeName="sunodiaModel.TransactionCategory">
+        <MappingFragment StoreEntitySet="TransactionCategory">
           <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Vendors">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Vendor)">
-        <MappingFragment StoreEntitySet="Vendors">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+      <EntityTypeMapping TypeName="sunodiaModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
           <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Venues">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.Venue)">
-        <MappingFragment StoreEntitySet="Venues">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address1" ColumnName="Address1" />
-          <ScalarProperty Name="Address2" ColumnName="Address2" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
+      <EntityTypeMapping TypeName="sunodiaModel.Venue">
+        <MappingFragment StoreEntitySet="Venue">
           <ScalarProperty Name="VenueTypeId" ColumnName="VenueTypeId" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VenueTypes">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.VenueType)">
-        <MappingFragment StoreEntitySet="VenueTypes">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+      <EntityTypeMapping TypeName="sunodiaModel.VenueType">
+        <MappingFragment StoreEntitySet="VenueType">
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwEventTransactions">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwEventTransaction)">
+      <EntityTypeMapping TypeName="sunodiaModel.vwEventTransaction">
         <MappingFragment StoreEntitySet="vwEventTransactions">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="FHICredit" ColumnName="FHICredit" />
-          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
-          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
-          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-          <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
-          <ScalarProperty Name="RegistrationType" ColumnName="RegistrationType" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
           <ScalarProperty Name="fee" ColumnName="fee" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="RegistrationType" ColumnName="RegistrationType" />
+          <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="FHICredit" ColumnName="FHICredit" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwFullPeoples">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwFullPeople)">
-        <MappingFragment StoreEntitySet="vwFullPeoples">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="Address2" ColumnName="Address2" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
-          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
-          <ScalarProperty Name="Comments" ColumnName="Comments" />
-          <ScalarProperty Name="Donor" ColumnName="Donor" />
-          <ScalarProperty Name="Student" ColumnName="Student" />
-          <ScalarProperty Name="Client" ColumnName="Client" />
-          <ScalarProperty Name="MinistryPartner" ColumnName="MinistryPartner" />
+      <EntityTypeMapping TypeName="sunodiaModel.vwFullPeople">
+        <MappingFragment StoreEntitySet="vwFullPeople">
           <ScalarProperty Name="MailChimp" ColumnName="MailChimp" />
+          <ScalarProperty Name="MinistryPartner" ColumnName="MinistryPartner" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Student" ColumnName="Student" />
+          <ScalarProperty Name="Donor" ColumnName="Donor" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwGroups">
-      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwGroup)">
+      <EntityTypeMapping TypeName="sunodiaModel.vwGroup">
         <MappingFragment StoreEntitySet="vwGroups">
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Street" ColumnName="Street" />
-          <ScalarProperty Name="Address2" ColumnName="Address2" />
-          <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="State" ColumnName="State" />
-          <ScalarProperty Name="Zip" ColumnName="Zip" />
-          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
           <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

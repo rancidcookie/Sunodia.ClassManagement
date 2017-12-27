@@ -13,7 +13,6 @@
     <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationType" />
     <EntitySet Name="vwRegistrationTotals" EntityType="sunodiaModel.vwRegistrationTotal" />
     <EntitySet Name="vwStudentTotals" EntityType="sunodiaModel.vwStudentTotal" />
-    <EntitySet Name="vwMiscTotals" EntityType="sunodiaModel.vwMiscTotal" />
     <EntitySet Name="Books" EntityType="sunodiaModel.Book" />
     <EntitySet Name="BooksPerClasses" EntityType="sunodiaModel.BooksPerClass" />
     <EntitySet Name="Certificates" EntityType="sunodiaModel.Certificate" />
@@ -38,6 +37,7 @@
     <EntitySet Name="PersonGroups" EntityType="sunodiaModel.PersonGroup" />
     <EntitySet Name="QBAccounts" EntityType="sunodiaModel.QBAccount" />
     <EntitySet Name="StudentCosts" EntityType="sunodiaModel.StudentCost" />
+    <EntitySet Name="Tables" EntityType="sunodiaModel.Table" />
     <EntitySet Name="TransactionCategories" EntityType="sunodiaModel.TransactionCategory" />
     <EntitySet Name="Vendors" EntityType="sunodiaModel.Vendor" />
     <EntitySet Name="Venues" EntityType="sunodiaModel.Venue" />
@@ -45,10 +45,6 @@
     <EntitySet Name="vwEventTransactions" EntityType="sunodiaModel.vwEventTransaction" />
     <EntitySet Name="vwFullPeoples" EntityType="sunodiaModel.vwFullPeople" />
     <EntitySet Name="vwGroups" EntityType="sunodiaModel.vwGroup" />
-    <AssociationSet Name="FK_Classes_ToBooks" Association="sunodiaModel.FK_Classes_ToBooks">
-      <End Role="Book" EntitySet="Books" />
-      <End Role="Event" EntitySet="Events" />
-    </AssociationSet>
     <AssociationSet Name="FK_CourseCerts_Certificates" Association="sunodiaModel.FK_CourseCerts_Certificates">
       <End Role="Certificate" EntitySet="Certificates" />
       <End Role="CourseCert" EntitySet="CourseCerts" />
@@ -64,10 +60,6 @@
     <AssociationSet Name="FK_CourseCerts_Course" Association="sunodiaModel.FK_CourseCerts_Course">
       <End Role="Cours" EntitySet="Courses" />
       <End Role="CourseCert" EntitySet="CourseCerts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Classes_ToCourseFormat" Association="sunodiaModel.FK_Classes_ToCourseFormat">
-      <End Role="CourseFormat" EntitySet="CourseFormats" />
-      <End Role="Event" EntitySet="Events" />
     </AssociationSet>
     <AssociationSet Name="FK_CourseFormats_ToQBAccounts" Association="sunodiaModel.FK_CourseFormats_ToQBAccounts">
       <End Role="QBAccount" EntitySet="QBAccounts" />
@@ -203,16 +195,6 @@
     <Property Name="StudentCount" Type="Int32" />
     <Property Name="TotalPaid" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
-  <EntityType Name="vwMiscTotal">
-    <Key>
-      <PropertyRef Name="ClassId" />
-      <PropertyRef Name="PaymentMethod" />
-    </Key>
-    <Property Name="ClassId" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PaymentMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="TotalPaid" Type="Decimal" Precision="19" Scale="4" />
-  </EntityType>
   <EntityType Name="Book">
     <Key>
       <PropertyRef Name="Id" />
@@ -222,7 +204,6 @@
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Events" Relationship="sunodiaModel.FK_Classes_ToBooks" FromRole="Book" ToRole="Event" />
   </EntityType>
   <EntityType Name="BooksPerClass">
     <Key>
@@ -275,7 +256,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Format" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AccountId" Type="Int32" />
-    <NavigationProperty Name="Events" Relationship="sunodiaModel.FK_Classes_ToCourseFormat" FromRole="CourseFormat" ToRole="Event" />
     <NavigationProperty Name="QBAccount" Relationship="sunodiaModel.FK_CourseFormats_ToQBAccounts" FromRole="CourseFormat" ToRole="QBAccount" />
   </EntityType>
   <EntityType Name="CourseMaterial">
@@ -310,9 +290,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="EventbriteEventId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EventbriteEventURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EventbriteEventURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventbriteEvents_ToEvents" FromRole="EventbriteEvent" ToRole="Event" />
   </EntityType>
@@ -333,32 +313,19 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CourseId" Type="Int32" />
-    <Property Name="CourseDate" Type="DateTime" Precision="3" />
-    <Property Name="MaterialCost" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CourseFormatId" Type="Int32" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="BookCost" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="BookId" Type="Int32" />
-    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
-    <Property Name="QuickBooksDate" Type="DateTime" Precision="3" />
-    <Property Name="Complete" Type="Boolean" Nullable="false" />
-    <Property Name="RegistrationCost" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
-    <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="FacilitatorId" Type="Int32" />
     <Property Name="FrequencyId" Type="Int32" />
-    <NavigationProperty Name="Book" Relationship="sunodiaModel.FK_Classes_ToBooks" FromRole="Event" ToRole="Book" />
-    <NavigationProperty Name="CourseFormat" Relationship="sunodiaModel.FK_Classes_ToCourseFormat" FromRole="Event" ToRole="CourseFormat" />
     <NavigationProperty Name="Cours" Relationship="sunodiaModel.FK_Classes_ToCourses" FromRole="Event" ToRole="Cours" />
     <NavigationProperty Name="EventbriteEvents" Relationship="sunodiaModel.FK_EventbriteEvents_ToEvents" FromRole="Event" ToRole="EventbriteEvent" />
     <NavigationProperty Name="EventCost2Student" Relationship="sunodiaModel.FK_EventCost2Student_ToEvent" FromRole="Event" ToRole="EventCost2Student" />
     <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_ClassAttendees_ToClasses" FromRole="Event" ToRole="MiscTransaction" />
     <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_Events_ToFacilitator" FromRole="Event" ToRole="Person" />
-    <NavigationProperty Name="Frequency1" Relationship="sunodiaModel.FK_Events_ToFrequency" FromRole="Event" ToRole="Frequency" />
+    <NavigationProperty Name="Frequency" Relationship="sunodiaModel.FK_Events_ToFrequency" FromRole="Event" ToRole="Frequency" />
     <NavigationProperty Name="EventStudents" Relationship="sunodiaModel.FK_EventStudents_Events" FromRole="Event" ToRole="EventStudent" />
     <NavigationProperty Name="EventTransactions" Relationship="sunodiaModel.FK_EventTransaction_ToEvent" FromRole="Event" ToRole="EventTransaction" />
     <NavigationProperty Name="EventVenues" Relationship="sunodiaModel.FK_EventVenues_ToEvents" FromRole="Event" ToRole="EventVenue" />
@@ -525,6 +492,13 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DefaultAmount" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="TransactionCategory">
     <Key>
       <PropertyRef Name="Id" />
@@ -586,7 +560,7 @@
     <Property Name="PaymentMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="CategoryId" Type="Int32" />
     <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="fee" Type="Decimal" Precision="35" Scale="11" />
+    <Property Name="fee" Type="Decimal" Precision="38" Scale="6" />
   </EntityType>
   <EntityType Name="vwFullPeople">
     <Key>
@@ -630,18 +604,6 @@
     <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="FK_Classes_ToBooks">
-    <End Type="sunodiaModel.Book" Role="Book" Multiplicity="0..1" />
-    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="BookId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CourseCerts_Certificates">
     <End Type="sunodiaModel.Certificate" Role="Certificate" Multiplicity="1" />
     <End Type="sunodiaModel.CourseCert" Role="CourseCert" Multiplicity="*" />
@@ -687,18 +649,6 @@
       </Principal>
       <Dependent Role="CourseCert">
         <PropertyRef Name="CourseId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Classes_ToCourseFormat">
-    <End Type="sunodiaModel.CourseFormat" Role="CourseFormat" Multiplicity="0..1" />
-    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CourseFormat">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="CourseFormatId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

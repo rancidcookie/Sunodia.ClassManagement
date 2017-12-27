@@ -1,18 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="sunodiaModelStoreContainer" CdmEntityContainer="sunodiaEntities">
-    <EntitySetMapping Name="QBAccounts">
-      <EntityTypeMapping TypeName="sunodiaModel.QBAccount">
-        <MappingFragment StoreEntitySet="QBAccounts">
-          <ScalarProperty Name="IsCredit" ColumnName="IsCredit" />
-          <ScalarProperty Name="QBAccount1" ColumnName="QBAccount" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RegistrationTypes">
-      <EntityTypeMapping TypeName="sunodiaModel.RegistrationType">
+      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.RegistrationType)">
         <MappingFragment StoreEntitySet="RegistrationTypes">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -20,30 +10,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwRegistrationTotals">
-      <EntityTypeMapping TypeName="sunodiaModel.vwRegistrationTotal">
+      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwRegistrationTotal)">
         <MappingFragment StoreEntitySet="vwRegistrationTotals">
-          <ScalarProperty Name="Total" ColumnName="Total" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="vwStudentTotals">
-      <EntityTypeMapping TypeName="sunodiaModel.vwStudentTotal">
+      <EntityTypeMapping TypeName="IsTypeOf(sunodiaModel.vwStudentTotal)">
         <MappingFragment StoreEntitySet="vwStudentTotals">
-          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
-          <ScalarProperty Name="StudentCount" ColumnName="StudentCount" />
           <ScalarProperty Name="classid" ColumnName="classid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="vwMiscTotals">
-      <EntityTypeMapping TypeName="sunodiaModel.vwMiscTotal">
-        <MappingFragment StoreEntitySet="vwMiscTotals">
+          <ScalarProperty Name="StudentCount" ColumnName="StudentCount" />
           <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -164,19 +144,8 @@
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="CourseType" ColumnName="CourseType" />
-          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="RegistrationCost" ColumnName="RegistrationCost" />
-          <ScalarProperty Name="Complete" ColumnName="Complete" />
-          <ScalarProperty Name="QuickBooksDate" ColumnName="QuickBooksDate" />
-          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="BookCost" ColumnName="BookCost" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="CourseFormatId" ColumnName="CourseFormatId" />
-          <ScalarProperty Name="MaterialCost" ColumnName="MaterialCost" />
-          <ScalarProperty Name="CourseDate" ColumnName="CourseDate" />
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -301,6 +270,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="QBAccounts">
+      <EntityTypeMapping TypeName="sunodiaModel.QBAccount">
+        <MappingFragment StoreEntitySet="QBAccounts">
+          <ScalarProperty Name="IsCredit" ColumnName="IsCredit" />
+          <ScalarProperty Name="QBAccount1" ColumnName="QBAccount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="StudentCosts">
       <EntityTypeMapping TypeName="sunodiaModel.StudentCost">
         <MappingFragment StoreEntitySet="StudentCosts">
@@ -416,19 +395,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="vwPaymentExpenses">
-      <EntityTypeMapping TypeName="sunodiaModel.vwPaymentExpens">
-        <MappingFragment StoreEntitySet="vwPaymentExpenses">
-          <ScalarProperty Name="fee" ColumnName="fee" />
-          <ScalarProperty Name="PlusFee" ColumnName="PlusFee" />
-          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

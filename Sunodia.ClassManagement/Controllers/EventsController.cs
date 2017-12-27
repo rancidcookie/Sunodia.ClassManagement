@@ -22,7 +22,8 @@ namespace Sunodia.ClassManagement.Controllers
         // GET: Classes
         public ActionResult Index()
         {
-            var classes = db.Events.Include(x => x.CourseFormat).Include(y => y.Cours).Where(x=>x.Active);
+            //var classes = db.Events.Include(x => x.CourseFormat).Include(y => y.Cours).Where(x=>x.Active);
+            var classes = db.Events.Include(y => y.Cours).Where(x => x.Active);
             return View(classes.ToList());
         }
 
@@ -89,7 +90,7 @@ namespace Sunodia.ClassManagement.Controllers
             //var facils = db.People.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Facilitators"));
             var facils = db.vwGroups.Where(x => x.GroupName == "facilitator");
 
-            ViewBag.CourseFormatId = new SelectList(db.CourseFormats, "Id", "Format", @class.CourseFormatId);
+            //ViewBag.CourseFormatId = new SelectList(db.CourseFormats, "Id", "Format", @class.CourseFormatId);
             ViewBag.CourseId = new SelectList(db.Courses, "Id", "CourseName", @class.CourseId);
 
             //ViewBag.FacilitatorId = new SelectList(facils,"Id","LastName",@class.FacilitatorId);

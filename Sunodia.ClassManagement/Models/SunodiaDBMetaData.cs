@@ -82,8 +82,8 @@ namespace Sunodia.ClassManagement.Models
             var myClass = this.Events.Where(x => x.Id == classId);
             var myStudentTotals = this.vwStudentTotals.Where(x => x.classid == classId);
             var mySAccounts = this.vwRegistrationTotals.Where(x => x.ClassId == classId);
-            var myMAccounts = this.vwMiscTotals.Where(x => x.ClassId == classId);
-            retVal.ClassName = myClass.First().Description;
+            //var myMAccounts = this.vwMiscTotals.Where(x => x.ClassId == classId);
+            //retVal.ClassName = myClass.First().Description;
             retVal.TotalPaid = myStudentTotals.First().TotalPaid??0;
             retVal.TotalStudents = myStudentTotals.First().StudentCount??0;
 
@@ -99,19 +99,19 @@ namespace Sunodia.ClassManagement.Models
             }
 
             retVal.Miscellaneous = new List<MiscTotals>();
-            foreach (var item in myMAccounts.ToList())
-            {
-                var newMAccount = new MiscTotals()
-                {
-                    Account = item.PaymentMethod,
-                    Total = item.TotalPaid ?? 0,
-                    //QBAccount = item.
-                };
-                retVal.Miscellaneous.Add(newMAccount);
-            }
+            //foreach (var item in myMAccounts.ToList())
+            //{
+            //    var newMAccount = new MiscTotals()
+            //    {
+            //        Account = item.PaymentMethod,
+            //        Total = item.TotalPaid ?? 0,
+            //        //QBAccount = item.
+            //    };
+            //    retVal.Miscellaneous.Add(newMAccount);
+            //}
 
             return retVal;
-        }
+        } 
 
         public System.Data.Entity.DbSet<ClassReviewViewModel> ClassReviewViewModels { get; set; }
 

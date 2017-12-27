@@ -272,6 +272,7 @@
     <Compile Include="Models\EventbriteEvent.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EventbriteViewModel.cs" />
     <Compile Include="Models\EventCost2Student.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
@@ -372,12 +373,6 @@
     <Compile Include="Models\vwGroup.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vwMiscTotal.cs">
-      <DependentUpon>FHIData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwPaymentExpens.cs">
-      <DependentUpon>FHIData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\vwRegistrationTotal.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
@@ -463,14 +458,8 @@
     <Content Include="Models\sunodiaData.edmx.diagram">
       <DependentUpon>sunodiaData.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\FindingHomeInstitute - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\FindingHomeInstitute - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\sunodia1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChoEditableDropDown.js" />
@@ -636,6 +625,7 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Eventbrite\Index.cshtml" />
     <Content Include="Views\Eventbrite\LinkEvent.cshtml" />
+    <Content Include="Sunodia.Secrets.Config" />
     <None Include="Web.FHI.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

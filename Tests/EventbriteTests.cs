@@ -13,7 +13,7 @@ namespace Tests
         public void CanGetOrders()
         {
             EBContext context = new EBContext();
-            var orders = context.GetOrders("34912353790");
+            var orders = context.GetOrders("41144700908");
 
             Assert.AreEqual("", orders.orders.First().name);
 
@@ -25,6 +25,18 @@ namespace Tests
             EBContext context = new EBContext();
             DateTime newerThan = new DateTime(2017, 1, 1);
             var events = context.GetEventsNewerThan(newerThan);
+            foreach(var ebEvent in events)
+            {
+                var orders = context.GetOrders(ebEvent.id);
+                if(orders.orders.Count() > 0)
+                {
+                    foreach(var order in orders.orders)
+                    {
+                        var result = order.last_name;
+                    }
+                }
+
+            }
 
 
         }
