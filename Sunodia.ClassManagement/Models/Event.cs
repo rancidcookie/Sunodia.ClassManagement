@@ -28,27 +28,14 @@ namespace Sunodia.ClassManagement.Models
     
         public int Id { get; set; }
         public Nullable<int> CourseId { get; set; }
-        public Nullable<System.DateTime> CourseDate { get; set; }
-        public Nullable<decimal> MaterialCost { get; set; }
-        public Nullable<int> CourseFormatId { get; set; }
-        public string Description { get; set; }
-        public Nullable<decimal> BookCost { get; set; }
-        public Nullable<int> BookId { get; set; }
-        public Nullable<System.DateTime> RegistrationDate { get; set; }
-        public Nullable<System.DateTime> QuickBooksDate { get; set; }
-        public bool Complete { get; set; }
-        public Nullable<decimal> RegistrationCost { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
-        public string Frequency { get; set; }
         public string CourseType { get; set; }
         public string NickName { get; set; }
         public bool Active { get; set; }
         public Nullable<int> FacilitatorId { get; set; }
         public Nullable<int> FrequencyId { get; set; }
     
-        public virtual Book Book { get; set; }
-        public virtual CourseFormat CourseFormat { get; set; }
         public virtual Cours Cours { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventbriteEvent> EventbriteEvents { get; set; }
@@ -57,7 +44,7 @@ namespace Sunodia.ClassManagement.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MiscTransaction> MiscTransactions { get; set; }
         public virtual Person Person { get; set; }
-        public virtual Frequency Frequency1 { get; set; }
+        public virtual Frequency Frequency { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventStudent> EventStudents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

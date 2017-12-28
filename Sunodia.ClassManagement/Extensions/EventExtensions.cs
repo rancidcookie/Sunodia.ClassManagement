@@ -35,7 +35,7 @@ namespace Sunodia.ClassManagement.Extensions
                 Active = true,
                 StartDate = toLoad.start.ToDate(),
                 EndDate = toLoad.end.ToDate(),
-                Description = toLoad.description.text,
+                //Description = toLoad.description.text,
                 NickName = toLoad.name.text,
             };
 

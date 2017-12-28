@@ -25,11 +25,9 @@ namespace Sunodia.ClassManagement.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<QBAccount> QBAccounts { get; set; }
         public virtual DbSet<RegistrationType> RegistrationTypes { get; set; }
         public virtual DbSet<vwRegistrationTotal> vwRegistrationTotals { get; set; }
         public virtual DbSet<vwStudentTotal> vwStudentTotals { get; set; }
-        public virtual DbSet<vwMiscTotal> vwMiscTotals { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<BooksPerClass> BooksPerClasses { get; set; }
         public virtual DbSet<Certificate> Certificates { get; set; }
@@ -52,6 +50,7 @@ namespace Sunodia.ClassManagement.Models
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<PersonGroup> PersonGroups { get; set; }
+        public virtual DbSet<QBAccount> QBAccounts { get; set; }
         public virtual DbSet<StudentCost> StudentCosts { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<TransactionCategory> TransactionCategories { get; set; }
@@ -61,6 +60,5 @@ namespace Sunodia.ClassManagement.Models
         public virtual DbSet<vwEventTransaction> vwEventTransactions { get; set; }
         public virtual DbSet<vwFullPeople> vwFullPeoples { get; set; }
         public virtual DbSet<vwGroup> vwGroups { get; set; }
-        public virtual DbSet<vwPaymentExpens> vwPaymentExpenses { get; set; }
     }
 }

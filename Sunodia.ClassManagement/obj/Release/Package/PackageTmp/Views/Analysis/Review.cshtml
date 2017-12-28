@@ -1,0 +1,42 @@
+﻿@model Sunodia.ClassManagement.Models.ClassReviewViewModel
+
+@{
+    ViewBag.Title = "Review";
+}
+
+<h2>Review</h2>
+
+<div>
+    <h4>ClassReviewViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalStudents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalStudents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalRegistered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalRegistered)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPaid)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClassName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
