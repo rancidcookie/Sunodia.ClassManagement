@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Sunodia.ClassManagement.Utility.Email;
 
@@ -8,11 +9,13 @@ namespace Tests
     public class TestEmail
     {
         [TestMethod]
-        public void TestMethod1()
+        public async Task CanSendEmail()
         {
             MailjetEmail mail = new MailjetEmail();
-            mail.SendEmail("22.00","test event","dan@rafferty.biz");
+            await mail.SendEmail("22.00","test event", "dan@rafferty.biz");
 
         }
+
+
     }
 }

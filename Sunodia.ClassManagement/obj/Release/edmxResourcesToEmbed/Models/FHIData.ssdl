@@ -84,9 +84,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EventbriteEventId" Type="varchar" MaxLength="50" />
-    <Property Name="EventbriteEventURL" Type="varchar" MaxLength="50" />
+    <Property Name="EventbriteEventURL" Type="varchar" MaxLength="500" />
     <Property Name="EventId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="EventCost2Student">
@@ -105,19 +105,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CourseId" Type="int" />
-    <Property Name="CourseDate" Type="datetime" />
-    <Property Name="MaterialCost" Type="money" />
-    <Property Name="CourseFormatId" Type="int" />
-    <Property Name="Description" Type="varchar" MaxLength="100" />
-    <Property Name="BookCost" Type="money" />
-    <Property Name="BookId" Type="int" />
-    <Property Name="RegistrationDate" Type="datetime" />
-    <Property Name="QuickBooksDate" Type="datetime" />
-    <Property Name="Complete" Type="bit" Nullable="false" />
-    <Property Name="RegistrationCost" Type="money" />
     <Property Name="EndDate" Type="date" />
     <Property Name="StartDate" Type="date" />
-    <Property Name="Frequency" Type="varchar" MaxLength="50" />
     <Property Name="CourseType" Type="varchar" MaxLength="50" />
     <Property Name="NickName" Type="varchar" MaxLength="50" />
     <Property Name="Active" Type="bit" Nullable="false" />
@@ -256,13 +245,6 @@
     <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="DefaultAmount" Type="money" />
   </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="VendorName" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
   <EntityType Name="TransactionCategory">
     <Key>
       <PropertyRef Name="Id" />
@@ -298,7 +280,7 @@
     <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwEventTransactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Sunodía.dbo.vwEventTransactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwEventTransactions">
     <Key>
       <PropertyRef Name="Id" />
@@ -324,7 +306,7 @@ warning 6002: The table/view 'fhi.dbo.vwEventTransactions' does not have a prima
     <Property Name="fee" Type="decimal" Precision="35" Scale="11" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwFullPeople' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Sunodía.dbo.vwFullPeople' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwFullPeople">
     <Key>
       <PropertyRef Name="Id" />
@@ -348,7 +330,7 @@ warning 6002: The table/view 'fhi.dbo.vwFullPeople' does not have a primary key 
     <Property Name="MailChimp" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Sunodía.dbo.vwGroups' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwGroups">
     <Key>
       <PropertyRef Name="FullName" />
@@ -370,38 +352,7 @@ warning 6002: The table/view 'fhi.dbo.vwGroups' does not have a primary key defi
     <Property Name="Comments" Type="varchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwMiscTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwMiscTotals">
-    <Key>
-      <PropertyRef Name="ClassId" />
-      <PropertyRef Name="PaymentMethod" />
-    </Key>
-    <Property Name="ClassId" Type="int" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="100" />
-    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="TotalPaid" Type="money" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwPaymentExpenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="vwPaymentExpenses">
-    <Key>
-      <PropertyRef Name="DateAdded" />
-      <PropertyRef Name="Amount" />
-      <PropertyRef Name="Description" />
-      <PropertyRef Name="PaymentMethod" />
-      <PropertyRef Name="Percentage" />
-      <PropertyRef Name="PlusFee" />
-    </Key>
-    <Property Name="DateAdded" Type="datetime" Nullable="false" />
-    <Property Name="Amount" Type="money" Nullable="false" />
-    <Property Name="Description" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="PaymentMethod" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="Percentage" Type="decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="PlusFee" Type="decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="fee" Type="decimal" Precision="35" Scale="11" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwRegistrationTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Sunodía.dbo.vwRegistrationTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwRegistrationTotals">
     <Key>
       <PropertyRef Name="ClassId" />
@@ -412,7 +363,7 @@ warning 6002: The table/view 'fhi.dbo.vwRegistrationTotals' does not have a prim
     <Property Name="Total" Type="money" />
   </EntityType>
   <!--Errors Found During Generation:
-warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'Sunodía.dbo.vwStudentTotals' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vwStudentTotals">
     <Key>
       <PropertyRef Name="classid" />
@@ -478,30 +429,6 @@ warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary k
       </Principal>
       <Dependent Role="ClassAttendees">
         <PropertyRef Name="RegistrationTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Classes_ToBooks">
-    <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
-    <End Role="Events" Type="Self.Events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Books">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Events">
-        <PropertyRef Name="BookId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Classes_ToCourseFormat">
-    <End Role="CourseFormats" Type="Self.CourseFormats" Multiplicity="0..1" />
-    <End Role="Events" Type="Self.Events" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CourseFormats">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Events">
-        <PropertyRef Name="CourseFormatId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -869,7 +796,6 @@ warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary k
     <EntitySet Name="QBAccounts" EntityType="Self.QBAccounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationTypes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StudentCosts" EntityType="Self.StudentCosts" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransactionCategory" EntityType="Self.TransactionCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
@@ -931,25 +857,6 @@ warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary k
     [vwGroups].[Comments] AS [Comments]
     FROM [dbo].[vwGroups] AS [vwGroups]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="vwMiscTotals" EntityType="Self.vwMiscTotals" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [vwMiscTotals].[ClassId] AS [ClassId], 
-    [vwMiscTotals].[Description] AS [Description], 
-    [vwMiscTotals].[PaymentMethod] AS [PaymentMethod], 
-    [vwMiscTotals].[TotalPaid] AS [TotalPaid]
-    FROM [dbo].[vwMiscTotals] AS [vwMiscTotals]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="vwPaymentExpenses" EntityType="Self.vwPaymentExpenses" store:Type="Views" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [vwPaymentExpenses].[DateAdded] AS [DateAdded], 
-    [vwPaymentExpenses].[Amount] AS [Amount], 
-    [vwPaymentExpenses].[Description] AS [Description], 
-    [vwPaymentExpenses].[PaymentMethod] AS [PaymentMethod], 
-    [vwPaymentExpenses].[Percentage] AS [Percentage], 
-    [vwPaymentExpenses].[PlusFee] AS [PlusFee], 
-    [vwPaymentExpenses].[fee] AS [fee]
-    FROM [dbo].[vwPaymentExpenses] AS [vwPaymentExpenses]</DefiningQuery>
-    </EntitySet>
     <EntitySet Name="vwRegistrationTotals" EntityType="Self.vwRegistrationTotals" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vwRegistrationTotals].[ClassId] AS [ClassId], 
@@ -983,14 +890,6 @@ warning 6002: The table/view 'fhi.dbo.vwStudentTotals' does not have a primary k
     <AssociationSet Name="FK_ClassAttendees_ToRegistrationTypes" Association="Self.FK_ClassAttendees_ToRegistrationTypes">
       <End Role="RegistrationTypes" EntitySet="RegistrationTypes" />
       <End Role="ClassAttendees" EntitySet="ClassAttendees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Classes_ToBooks" Association="Self.FK_Classes_ToBooks">
-      <End Role="Books" EntitySet="Books" />
-      <End Role="Events" EntitySet="Events" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Classes_ToCourseFormat" Association="Self.FK_Classes_ToCourseFormat">
-      <End Role="CourseFormats" EntitySet="CourseFormats" />
-      <End Role="Events" EntitySet="Events" />
     </AssociationSet>
     <AssociationSet Name="FK_Classes_ToCourses" Association="Self.FK_Classes_ToCourses">
       <End Role="Courses" EntitySet="Courses" />

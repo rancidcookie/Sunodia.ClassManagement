@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,19 +14,19 @@ namespace Sunodia.ClassManagement.Utility.Eventbrite
 {
     public class Context
     {
-        //private string apiToken = "YCJS6WHRJYORXPXRQHNY";  //Dans
-        private string apiToken = "QQ52LM4N3YJOLBDSXWJF";  //FHI
+        private string apiToken = "";  
         
-        //https://www.eventbriteapi.com/v3/users/me/owned_events?token=QQ52LM4N3YJOLBDSXWJF
+        //https://www.eventbriteapi.com/v3/users/me/owned_events?token=
         private string baseUrl = @"https://www.eventbriteapi.com/v3/";
 
         public Context()
-        { }
+        {
+            this.apiToken = ConfigurationManager.AppSettings["EventbriteAPIKey"];
+        }
 
         public Context(string apiToken)
         {
             this.apiToken = apiToken;
-            //eContext = new EventbriteNET.EventbriteContext(apiToken);
         }
 
         public Orders GetOrders(string eventId)
@@ -38,7 +39,7 @@ namespace Sunodia.ClassManagement.Utility.Eventbrite
 
         public List<Event> GetEventsNewerThan(DateTime thisDate)
         {
-            //https://www.eventbriteapi.com/v3/users/me/owned_events?token=QQ52LM4N3YJOLBDSXWJF
+            //https://www.eventbriteapi.com/v3/users/me/owned_events?token=
             var url = string.Format(@"{0}users/me/owned_events?token={1}", baseUrl, apiToken);
             var eventsObj = GetResponse<Events>(url);
             var allEvents = eventsObj.events;

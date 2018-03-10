@@ -79,36 +79,36 @@ namespace Sunodia.ClassManagement.Models
         public ClassReviewViewModel GetAnalysis(int classId)
         {
             var retVal = new ClassReviewViewModel();
-            var myClass = this.Events.Where(x => x.Id == classId);
-            var myStudentTotals = this.vwStudentTotals.Where(x => x.classid == classId);
-            var mySAccounts = this.vwRegistrationTotals.Where(x => x.ClassId == classId);
-            var myMAccounts = this.vwMiscTotals.Where(x => x.ClassId == classId);
-            retVal.ClassName = myClass.First().Description;
-            retVal.TotalPaid = myStudentTotals.First().TotalPaid??0;
-            retVal.TotalStudents = myStudentTotals.First().StudentCount??0;
+            //var myClass = this.Events.Where(x => x.Id == classId);
+            //var myStudentTotals = this.vwStudentTotals.Where(x => x.classid == classId);
+            //var mySAccounts = this.vwRegistrationTotals.Where(x => x.ClassId == classId);
+            ////var myMAccounts = this.vwMiscTotals.Where(x => x.ClassId == classId);
+            //retVal.ClassName = myClass.First().NickName;
+            //retVal.TotalPaid = myStudentTotals.First().TotalPaid??0;
+            //retVal.TotalStudents = myStudentTotals.First().StudentCount??0;
 
-            retVal.StudentAccounts = new List<StudentBreakDown>();
-            foreach(var item in mySAccounts.ToList())
-            {
-                var newSAccount = new StudentBreakDown()
-                {
-                    PaymentType = item.Description,
-                    Total = item.Total ?? 0
-                };
-                retVal.StudentAccounts.Add(newSAccount);
-            }
+            //retVal.StudentAccounts = new List<StudentBreakDown>();
+            //foreach(var item in mySAccounts.ToList())
+            //{
+            //    var newSAccount = new StudentBreakDown()
+            //    {
+            //        PaymentType = item.Description,
+            //        Total = item.Total ?? 0
+            //    };
+            //    retVal.StudentAccounts.Add(newSAccount);
+            //}
 
-            retVal.Miscellaneous = new List<MiscTotals>();
-            foreach (var item in myMAccounts.ToList())
-            {
-                var newMAccount = new MiscTotals()
-                {
-                    Account = item.PaymentMethod,
-                    Total = item.TotalPaid ?? 0,
-                    //QBAccount = item.
-                };
-                retVal.Miscellaneous.Add(newMAccount);
-            }
+            //retVal.Miscellaneous = new List<MiscTotals>();
+            //foreach (var item in myMAccounts.ToList())
+            //{
+            //    var newMAccount = new MiscTotals()
+            //    {
+            //        Account = item.PaymentMethod,
+            //        Total = item.TotalPaid ?? 0,
+            //        //QBAccount = item.
+            //    };
+            //    retVal.Miscellaneous.Add(newMAccount);
+            //}
 
             return retVal;
         }

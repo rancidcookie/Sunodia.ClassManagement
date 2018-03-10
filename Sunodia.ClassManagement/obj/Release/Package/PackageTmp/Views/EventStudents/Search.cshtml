@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FHI.Models.Person>
+﻿@model IEnumerable<Sunodia.ClassManagement.Models.Person>
 
 @{
     ViewBag.Title = "Add Students";
@@ -35,6 +35,9 @@
                 @Html.Label("LastNameSearch", "Last Name", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.Editor("LastNameFilter", new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                <div class="col-md-10">
+                    @Html.CheckBox("ShowAll", new { htmlAttributes = new { @class = "form-control" } })
                 </div>
                 <input type="submit" value="Search" class="btn btn-default" />
             </div>

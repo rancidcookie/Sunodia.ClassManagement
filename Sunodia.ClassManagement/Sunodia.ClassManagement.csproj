@@ -205,7 +205,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalysisController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\ClassAttendeesController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\CoursController.cs" />
     <Compile Include="Controllers\CourseCertsController.cs" />
@@ -345,9 +344,6 @@
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentCostViewModel.cs" />
-    <Compile Include="Models\Table.cs">
-      <DependentUpon>FHIData.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TransactionCategory.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
@@ -368,12 +364,6 @@
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vwGroup.cs">
-      <DependentUpon>FHIData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwMiscTotal.cs">
-      <DependentUpon>FHIData.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\vwPaymentExpens.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\vwRegistrationTotal.cs">
@@ -460,9 +450,6 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\sunodia1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChoEditableDropDown.js" />

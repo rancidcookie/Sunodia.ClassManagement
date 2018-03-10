@@ -22,5 +22,3 @@ Mailjet
 dan@rafferty.biz
 good8564!
 
-API Key/SMTP User: b42024e62586df2dd5334d106da69f3f 
-API Secret: SMTP Pass: 3e3c7b4af713a5c32ddb8cabac9cdbdc 

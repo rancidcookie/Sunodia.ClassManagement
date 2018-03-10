@@ -93,9 +93,14 @@ namespace Sunodia.ClassManagement.Controllers
 
         // GET: EventStudents/Edit/5
 
-        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId)
+        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId, string showAll)
         {
-            var students = db.People.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Student"));
+            var students = db.People.Where(x=>x.LastName != null);
+
+            if (showAll != "true")
+            {
+                students = students.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Student"));
+            }
             var myEvent = db.Events.Where(x => x.Id == EventId).First();
 
             if (!string.IsNullOrEmpty(firstNameFilter))
@@ -118,7 +123,8 @@ namespace Sunodia.ClassManagement.Controllers
             {
                 firstNameFilter = collection["firstNameFilter"],
                 lastNameFilter = collection["lastNameFilter"],
-                EventId = collection["eventId"]
+                EventId = collection["eventId"], 
+                ShowAll = collection["showall"]
             });
         }
 
@@ -203,12 +209,11 @@ namespace Sunodia.ClassManagement.Controllers
             try
             {
                 MailjetEmail emailer = new MailjetEmail();
-                emailer.SendEmail(amountDue, eventDue, email);
+                await emailer.SendEmail(amountDue, eventDue, email);
             }
             catch(Exception ex)
             {
                 response = ex.Message;
-
             }
 
 

@@ -14,18 +14,10 @@ namespace Sunodia.ClassManagement.Models
     
     public partial class CourseFormat
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CourseFormat()
-        {
-            this.Events = new HashSet<Event>();
-        }
-    
         public int Id { get; set; }
         public string Format { get; set; }
         public Nullable<int> AccountId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Event> Events { get; set; }
         public virtual QBAccount QBAccount { get; set; }
     }
 }

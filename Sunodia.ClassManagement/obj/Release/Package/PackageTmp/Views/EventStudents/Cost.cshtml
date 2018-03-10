@@ -1,4 +1,4 @@
-﻿@model FHI.Models.StudentCostViewModel
+﻿@model Sunodia.ClassManagement.Models.StudentCostViewModel
 
 @{
     ViewBag.Title = "Student Costs";
@@ -106,7 +106,7 @@
     }
     else
     {
-        <p><a href="@Url.Action("Email", "EventStudents", new { eventId = ViewBag.EventId, studentId = Model.Student.Id, amountDue = string.Format("{0:c}", balance) }) "class="btn btn-primary btn-lg">Send Payment Reminder &raquo;</a></p>
+        <p><a href="@Url.Action("Email", "EventStudents", new { eventId = ViewBag.EventId, studentId = Model.Student.Id, amountDue = string.Format("{0:c}",  Math.Abs(balance))}) "class="btn btn-primary btn-lg">Send Payment Reminder &raquo;</a></p>
     }
 
     

@@ -11,7 +11,6 @@ D:\MyDocs\vs\FHI\FHI\Tests\bin\Debug\Danware.Danmail.pdb
 D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.dll
 D:\MyDocs\Git\Sunodia\Sunodia\Tests\obj\Debug\Tests.pdb
-D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\roslyn\csc.exe
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -26,6 +25,7 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\roslyn\VBCSCompiler.exe
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\roslyn\VBCSCompiler.exe.config
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Microsoft.ApplicationInsights.Extensions.Intercept_x86.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Tests.dll.config
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Tests.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Tests.pdb
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
@@ -62,5 +62,9 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\System.Web.Razor.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\System.Web.WebPages.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Tests\obj\Debug\Tests.pdb
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Mailjet.Client.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Newtonsoft.Json.dll
+D:\MyDocs\Git\Sunodia.ClassManagement\Tests\bin\Debug\Newtonsoft.Json.xml

@@ -14,19 +14,10 @@ namespace Sunodia.ClassManagement.Models
     
     public partial class Book
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Book()
-        {
-            this.Events = new HashSet<Event>();
-        }
-    
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public Nullable<decimal> Cost { get; set; }
         public string Vendor { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Event> Events { get; set; }
     }
 }

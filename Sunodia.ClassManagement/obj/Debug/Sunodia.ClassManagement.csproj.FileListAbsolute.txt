@@ -1,4 +1,3 @@
-D:\MyDocs\Git\Sunodia\Sunodia\FHI\obj\Debug\Sunodia.ClassManagement.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\roslyn\csc.exe
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -80,3 +79,4 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Debug\Sunodia.ClassManagement.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Debug\Sunodia.ClassManagement.pdb
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Debug\Sunodia.ClassManagement.csprojResolveAssemblyReference.cache

@@ -44,7 +44,7 @@ namespace Sunodia.ClassManagement.Controllers
             ViewBag.ClassId = tmpList;
             ViewBag.ClassId2 = id;
             var tmpClass = db.Events.Where(x => x.Id == id).First();
-            ViewBag.ClassDesc = tmpClass.Description + "-" + tmpClass.Cours.Id;
+            ViewBag.ClassDesc = tmpClass.NickName;
 
             ViewBag.PayerId = db.GetPeopleList(null);
             ViewBag.PaymentTypeId = new SelectList(db.PaymentMethods, "Id", "PaymentMethod1");
@@ -108,7 +108,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             ViewBag.ClassId = tmpList;
             ViewBag.ClassId2 = miscTransaction.ClassId;
-            ViewBag.ClassDesc = db.Events.Where(x => x.Id == miscTransaction.ClassId).First().Description;
+            ViewBag.ClassDesc = db.Events.Where(x => x.Id == miscTransaction.ClassId).First().NickName;
 
             //ViewBag.PayerId = db.GetPeopleList(null);
             ViewBag.QBAccounts = new SelectList(db.QBAccounts, "Id", "Description");
