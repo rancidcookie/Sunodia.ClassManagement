@@ -37,16 +37,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="vwMiscTotals">
-      <EntityTypeMapping TypeName="fhiModel.vwMiscTotal">
-        <MappingFragment StoreEntitySet="vwMiscTotals">
-          <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="fhiModel.Book">
         <MappingFragment StoreEntitySet="Books">
@@ -135,6 +125,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EventbriteEvents">
+      <EntityTypeMapping TypeName="fhiModel.EventbriteEvent">
+        <MappingFragment StoreEntitySet="EventbriteEvents">
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventbriteEventURL" ColumnName="EventbriteEventURL" />
+          <ScalarProperty Name="EventbriteEventId" ColumnName="EventbriteEventId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EventCost2Student">
       <EntityTypeMapping TypeName="fhiModel.EventCost2Student">
         <MappingFragment StoreEntitySet="EventCost2Student">
@@ -149,23 +149,13 @@
     <EntitySetMapping Name="Events">
       <EntityTypeMapping TypeName="fhiModel.Event">
         <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
           <ScalarProperty Name="FacilitatorId" ColumnName="FacilitatorId" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="NickName" ColumnName="NickName" />
           <ScalarProperty Name="CourseType" ColumnName="CourseType" />
-          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="RegistrationCost" ColumnName="RegistrationCost" />
-          <ScalarProperty Name="Complete" ColumnName="Complete" />
-          <ScalarProperty Name="QuickBooksDate" ColumnName="QuickBooksDate" />
-          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
-          <ScalarProperty Name="BookId" ColumnName="BookId" />
-          <ScalarProperty Name="BookCost" ColumnName="BookCost" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="CourseFormatId" ColumnName="CourseFormatId" />
-          <ScalarProperty Name="MaterialCost" ColumnName="MaterialCost" />
-          <ScalarProperty Name="CourseDate" ColumnName="CourseDate" />
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -219,6 +209,14 @@
         <MappingFragment StoreEntitySet="EventVenues">
           <ScalarProperty Name="EventId" ColumnName="EventId" />
           <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Frequencies">
+      <EntityTypeMapping TypeName="fhiModel.Frequency">
+        <MappingFragment StoreEntitySet="Frequency">
+          <ScalarProperty Name="Frequency1" ColumnName="Frequency" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -282,10 +280,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Tables">
-      <EntityTypeMapping TypeName="fhiModel.Table">
-        <MappingFragment StoreEntitySet="Table">
-          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+    <EntitySetMapping Name="StudentCosts">
+      <EntityTypeMapping TypeName="fhiModel.StudentCost">
+        <MappingFragment StoreEntitySet="StudentCosts">
+          <ScalarProperty Name="DefaultAmount" ColumnName="DefaultAmount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -331,9 +330,14 @@
     <EntitySetMapping Name="vwEventTransactions">
       <EntityTypeMapping TypeName="fhiModel.vwEventTransaction">
         <MappingFragment StoreEntitySet="vwEventTransactions">
+          <ScalarProperty Name="fee" ColumnName="fee" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
           <ScalarProperty Name="RegistrationType" ColumnName="RegistrationType" />
           <ScalarProperty Name="RegistrationTypeId" ColumnName="RegistrationTypeId" />
           <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
           <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
           <ScalarProperty Name="FHICredit" ColumnName="FHICredit" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />

@@ -79,3 +79,4 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.pdb
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.csprojResolveAssemblyReference.cache

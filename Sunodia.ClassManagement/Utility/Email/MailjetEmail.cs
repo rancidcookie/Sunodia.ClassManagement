@@ -24,7 +24,8 @@ namespace Sunodia.ClassManagement.Utility.Email
             APIKey = ConfigurationManager.AppSettings["MailJetAPIKey"];
             SecretKey = ConfigurationManager.AppSettings["MailJetSecretKey"];
             From = ConfigurationManager.AppSettings["MailJetFrom"];
-            if(string.IsNullOrEmpty(APIKey))
+            ToOverride = ConfigurationManager.AppSettings["MailJetToOverride"];
+            if (string.IsNullOrEmpty(APIKey))
             {
                 //Loaddetails from a file
                 var mailjetConfig = ConfigurationManager.AppSettings["MailJetConfig"];
@@ -36,6 +37,7 @@ namespace Sunodia.ClassManagement.Utility.Email
                     ToOverride = "dan@rafferty.biz";
                 }
             }
+            
         }
 
         public MailjetEmail(string apiKey, string secretKey, string from)
