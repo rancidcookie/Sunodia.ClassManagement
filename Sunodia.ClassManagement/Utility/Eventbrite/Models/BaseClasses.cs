@@ -23,26 +23,11 @@ namespace Sunodia.ClassManagement.Utility.Eventbrite.Models
     [DataContract]
     public class EventTime
     {
-        private string _local = "";
         [DataMember]
         string timezone { get; set; }
         [DataMember]
-        public string local
-        {
-            get
-            {
-                return _local;
-            }
-            set
-            {
-                var newValue = value;
-                DateTime newDate;
-                if (DateTime.TryParse(newValue, out newDate))
-                    newValue = newDate.ToString();
+        string local { get; set; }
 
-                _local =  newValue;
-            }
-        }
         [DataMember]
         string utc { get; set; }
         public DateTime ToDate()
@@ -50,7 +35,6 @@ namespace Sunodia.ClassManagement.Utility.Eventbrite.Models
             return Convert.ToDateTime(local);
 
         }
-
     }
 
 

@@ -22,11 +22,3 @@ Mailjet
 dan@rafferty.biz
 good8564!
 
-API Key/SMTP User: b42024e62586df2dd5334d106da69f3f 
-API Secret: SMTP Pass: 3e3c7b4af713a5c32ddb8cabac9cdbdc 
-
-
-
-In order to secure the secret keys needed this cert needs to be installed on the deployment server
-
-makecert -r -pe -n "CN=azureconfig" -sky exchange "azureconfig.cer" -sv "azureconfig.pvk"

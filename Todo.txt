@@ -1,17 +1,12 @@
+Dev site I'm getting an error when trying to edit a person
 So we're going to change the Registration types to Default Student Costs
 In manage event update the "Typical Costs" to use the pull down from StudentCosts
 In manage student, when you pick something from the list it adds the cost
 
-When you are done linking or unlinking go back to the event specific page
+Need to add api keys from FHI to sunodia azure config
 
 
 í =  alt 237
-
-Mailjet:
-Main Account
-APIKey: 8d63479f8c384ff6e02e5852527def96
-Secret: 6da9f03ac569f6df938f02ff23ad8c39
-
 
 sunodia & FHI deployment
 user: dansunodia
@@ -24,28 +19,10 @@ https://portal.azure.com/
 click on FHI DB, Server,Show firewall settings
 click, add clientIP
 https://findinghomeinstitute.azurewebsites.net/
-anaysis pick values is not working
 
-
-
-Dans oath
-https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=YLQ5HNJ23GDTRMFI6K
-Application Key: YLQ5HNJ23GDTRMFI6K
-OAuth Client Secret: 5CYUVOKLHBXDNSQ2JNQTMM7UVCS27QTILSRLX3RA5VETJ2K6A6
 
 http://json2csharp.com/#
 
-Test: 
-https://www.eventbriteapi.com/v3/users/me/?token=YCJS6WHRJYORXPXRQHNY 
-https://www.eventbriteapi.com/v3/users/me/owned_events?token=YCJS6WHRJYORXPXRQHNY
-https://www.eventbriteapi.com/v3/events/24246580174/orders/?token=YCJS6WHRJYORXPXRQHNY
-old order dan test1:21646168272
-dan test2: 24246580174
-
-Issues
-****************************]
-
-https://www.eventbrite.com/developer/v3/endpoints/events/#ebapi-post-events
 
 Updating DB
 Update using the Design options in SQL Server Object Explorer.

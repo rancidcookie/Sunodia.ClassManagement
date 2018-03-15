@@ -13,10 +13,10 @@ namespace Sunodia.ClassManagement.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sunodiaEntities : DbContext
+    public partial class fhiEntities : DbContext
     {
-        public sunodiaEntities()
-            : base("name=sunodiaEntities")
+        public fhiEntities()
+            : base("name=fhiEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace Sunodia.ClassManagement.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<QBAccount> QBAccounts { get; set; }
         public virtual DbSet<RegistrationType> RegistrationTypes { get; set; }
         public virtual DbSet<vwRegistrationTotal> vwRegistrationTotals { get; set; }
         public virtual DbSet<vwStudentTotal> vwStudentTotals { get; set; }
@@ -50,9 +51,7 @@ namespace Sunodia.ClassManagement.Models
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<PersonGroup> PersonGroups { get; set; }
-        public virtual DbSet<QBAccount> QBAccounts { get; set; }
         public virtual DbSet<StudentCost> StudentCosts { get; set; }
-        public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<TransactionCategory> TransactionCategories { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
         public virtual DbSet<Venue> Venues { get; set; }

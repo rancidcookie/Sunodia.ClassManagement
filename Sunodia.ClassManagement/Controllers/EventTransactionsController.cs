@@ -12,7 +12,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class EventTransactionsController : Controller
     {
-        private sunodiaEntities db = new sunodiaEntities();
+        private fhiEntities db = new fhiEntities();
 
         // GET: EventTransactions
         public ActionResult Index(int? eventId)

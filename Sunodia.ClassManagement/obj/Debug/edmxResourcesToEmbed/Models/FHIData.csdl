@@ -25,7 +25,6 @@
     <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationType" />
     <EntitySet Name="vwRegistrationTotals" EntityType="fhiModel.vwRegistrationTotal" />
     <EntitySet Name="vwStudentTotals" EntityType="fhiModel.vwStudentTotal" />
-    <EntitySet Name="vwMiscTotals" EntityType="fhiModel.vwMiscTotal" />
     <EntitySet Name="Books" EntityType="fhiModel.Book" />
     <EntitySet Name="BooksPerClasses" EntityType="fhiModel.BooksPerClass" />
     <EntitySet Name="Certificates" EntityType="fhiModel.Certificate" />
@@ -49,7 +48,6 @@
     <EntitySet Name="People" EntityType="fhiModel.Person" />
     <EntitySet Name="PersonGroups" EntityType="fhiModel.PersonGroup" />
     <EntitySet Name="StudentCosts" EntityType="fhiModel.StudentCost" />
-    <EntitySet Name="Tables" EntityType="fhiModel.Table" />
     <EntitySet Name="TransactionCategories" EntityType="fhiModel.TransactionCategory" />
     <EntitySet Name="Vendors" EntityType="fhiModel.Vendor" />
     <EntitySet Name="Venues" EntityType="fhiModel.Venue" />
@@ -57,11 +55,6 @@
     <EntitySet Name="vwEventTransactions" EntityType="fhiModel.vwEventTransaction" />
     <EntitySet Name="vwFullPeoples" EntityType="fhiModel.vwFullPeople" />
     <EntitySet Name="vwGroups" EntityType="fhiModel.vwGroup" />
-    <EntitySet Name="vwPaymentExpenses" EntityType="fhiModel.vwPaymentExpens" />
-    <AssociationSet Name="FK_Classes_ToBooks" Association="fhiModel.FK_Classes_ToBooks">
-      <End Role="Book" EntitySet="Books" />
-      <End Role="Event" EntitySet="Events" />
-    </AssociationSet>
     <AssociationSet Name="FK_CourseCerts_Certificates" Association="fhiModel.FK_CourseCerts_Certificates">
       <End Role="Certificate" EntitySet="Certificates" />
       <End Role="CourseCert" EntitySet="CourseCerts" />
@@ -77,10 +70,6 @@
     <AssociationSet Name="FK_CourseCerts_Course" Association="fhiModel.FK_CourseCerts_Course">
       <End Role="Cours" EntitySet="Courses" />
       <End Role="CourseCert" EntitySet="CourseCerts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Classes_ToCourseFormat" Association="fhiModel.FK_Classes_ToCourseFormat">
-      <End Role="CourseFormat" EntitySet="CourseFormats" />
-      <End Role="Event" EntitySet="Events" />
     </AssociationSet>
     <AssociationSet Name="FK_CourseFormats_ToQBAccounts" Association="fhiModel.FK_CourseFormats_ToQBAccounts">
       <End Role="QBAccount" EntitySet="QBAccounts" />
@@ -216,16 +205,6 @@
     <Property Name="StudentCount" Type="Int32" />
     <Property Name="TotalPaid" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
-  <EntityType Name="vwMiscTotal">
-    <Key>
-      <PropertyRef Name="ClassId" />
-      <PropertyRef Name="PaymentMethod" />
-    </Key>
-    <Property Name="ClassId" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PaymentMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="TotalPaid" Type="Decimal" Precision="19" Scale="4" />
-  </EntityType>
   <EntityType Name="Book">
     <Key>
       <PropertyRef Name="Id" />
@@ -235,7 +214,6 @@
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Events" Relationship="fhiModel.FK_Classes_ToBooks" FromRole="Book" ToRole="Event" />
   </EntityType>
   <EntityType Name="BooksPerClass">
     <Key>
@@ -288,7 +266,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Format" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="AccountId" Type="Int32" />
-    <NavigationProperty Name="Events" Relationship="fhiModel.FK_Classes_ToCourseFormat" FromRole="CourseFormat" ToRole="Event" />
     <NavigationProperty Name="QBAccount" Relationship="fhiModel.FK_CourseFormats_ToQBAccounts" FromRole="CourseFormat" ToRole="QBAccount" />
   </EntityType>
   <EntityType Name="CourseMaterial">
@@ -323,9 +300,9 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EventbriteEventId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="EventbriteEventURL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EventbriteEventURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Event" Relationship="fhiModel.FK_EventbriteEvents_ToEvents" FromRole="EventbriteEvent" ToRole="Event" />
   </EntityType>
@@ -346,32 +323,19 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CourseId" Type="Int32" />
-    <Property Name="CourseDate" Type="DateTime" Precision="3" />
-    <Property Name="MaterialCost" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="CourseFormatId" Type="Int32" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="BookCost" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="BookId" Type="Int32" />
-    <Property Name="RegistrationDate" Type="DateTime" Precision="3" />
-    <Property Name="QuickBooksDate" Type="DateTime" Precision="3" />
-    <Property Name="Complete" Type="Boolean" Nullable="false" />
-    <Property Name="RegistrationCost" Type="Decimal" Precision="19" Scale="4" />
     <Property Name="EndDate" Type="DateTime" Precision="0" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
-    <Property Name="Frequency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="FacilitatorId" Type="Int32" />
     <Property Name="FrequencyId" Type="Int32" />
-    <NavigationProperty Name="Book" Relationship="fhiModel.FK_Classes_ToBooks" FromRole="Event" ToRole="Book" />
-    <NavigationProperty Name="CourseFormat" Relationship="fhiModel.FK_Classes_ToCourseFormat" FromRole="Event" ToRole="CourseFormat" />
     <NavigationProperty Name="Cours" Relationship="fhiModel.FK_Classes_ToCourses" FromRole="Event" ToRole="Cours" />
     <NavigationProperty Name="EventbriteEvents" Relationship="fhiModel.FK_EventbriteEvents_ToEvents" FromRole="Event" ToRole="EventbriteEvent" />
     <NavigationProperty Name="EventCost2Student" Relationship="fhiModel.FK_EventCost2Student_ToEvent" FromRole="Event" ToRole="EventCost2Student" />
     <NavigationProperty Name="MiscTransactions" Relationship="fhiModel.FK_ClassAttendees_ToClasses" FromRole="Event" ToRole="MiscTransaction" />
     <NavigationProperty Name="Person" Relationship="fhiModel.FK_Events_ToFacilitator" FromRole="Event" ToRole="Person" />
-    <NavigationProperty Name="Frequency1" Relationship="fhiModel.FK_Events_ToFrequency" FromRole="Event" ToRole="Frequency" />
+    <NavigationProperty Name="Frequency" Relationship="fhiModel.FK_Events_ToFrequency" FromRole="Event" ToRole="Frequency" />
     <NavigationProperty Name="EventStudents" Relationship="fhiModel.FK_EventStudents_Events" FromRole="Event" ToRole="EventStudent" />
     <NavigationProperty Name="EventTransactions" Relationship="fhiModel.FK_EventTransaction_ToEvent" FromRole="Event" ToRole="EventTransaction" />
     <NavigationProperty Name="EventVenues" Relationship="fhiModel.FK_EventVenues_ToEvents" FromRole="Event" ToRole="EventVenue" />
@@ -527,13 +491,6 @@
     <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DefaultAmount" Type="Decimal" Precision="19" Scale="4" />
   </EntityType>
-  <EntityType Name="Table">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="TransactionCategory">
     <Key>
       <PropertyRef Name="Id" />
@@ -639,35 +596,6 @@
     <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="vwPaymentExpens">
-    <Key>
-      <PropertyRef Name="DateAdded" />
-      <PropertyRef Name="Amount" />
-      <PropertyRef Name="Description" />
-      <PropertyRef Name="PaymentMethod" />
-      <PropertyRef Name="Percentage" />
-      <PropertyRef Name="PlusFee" />
-    </Key>
-    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PaymentMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Percentage" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-    <Property Name="PlusFee" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-    <Property Name="fee" Type="Decimal" Precision="35" Scale="11" />
-  </EntityType>
-  <Association Name="FK_Classes_ToBooks">
-    <End Type="fhiModel.Book" Role="Book" Multiplicity="0..1" />
-    <End Type="fhiModel.Event" Role="Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="BookId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CourseCerts_Certificates">
     <End Type="fhiModel.Certificate" Role="Certificate" Multiplicity="1" />
     <End Type="fhiModel.CourseCert" Role="CourseCert" Multiplicity="*" />
@@ -713,18 +641,6 @@
       </Principal>
       <Dependent Role="CourseCert">
         <PropertyRef Name="CourseId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Classes_ToCourseFormat">
-    <End Type="fhiModel.CourseFormat" Role="CourseFormat" Multiplicity="0..1" />
-    <End Type="fhiModel.Event" Role="Event" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CourseFormat">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Event">
-        <PropertyRef Name="CourseFormatId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

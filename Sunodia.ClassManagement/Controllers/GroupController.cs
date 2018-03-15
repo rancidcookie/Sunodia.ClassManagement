@@ -10,7 +10,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class GroupController : Controller
     {
-        private sunodiaEntities db = new sunodiaEntities();
+        private fhiEntities db = new fhiEntities();
 
         // GET: Group
         public ActionResult Index()

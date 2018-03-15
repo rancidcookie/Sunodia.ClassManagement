@@ -17,7 +17,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class EventStudentsController : Controller
     {
-        private sunodiaEntities db = new sunodiaEntities();
+        private fhiEntities db = new fhiEntities();
 
         // GET: EventStudents
         public ActionResult Index(int? eventId)
@@ -93,9 +93,14 @@ namespace Sunodia.ClassManagement.Controllers
 
         // GET: EventStudents/Edit/5
 
-        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId)
+        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId, string showAll)
         {
-            var students = db.People.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Student"));
+            var students = db.People.Where(x=>x.LastName != null);
+
+            if (showAll != "true")
+            {
+                students = students.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Student"));
+            }
             var myEvent = db.Events.Where(x => x.Id == EventId).First();
 
             if (!string.IsNullOrEmpty(firstNameFilter))
@@ -107,7 +112,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             ViewBag.EventId = EventId;
             ViewBag.EventNickName = myEvent.NickName;
-            return View(students.ToList());
+            return View(students);
         }
 
         [HttpPost]
@@ -118,7 +123,8 @@ namespace Sunodia.ClassManagement.Controllers
             {
                 firstNameFilter = collection["firstNameFilter"],
                 lastNameFilter = collection["lastNameFilter"],
-                EventId = collection["eventId"]
+                EventId = collection["eventId"], 
+                ShowAll = collection["showall"]
             });
         }
 
@@ -194,7 +200,7 @@ namespace Sunodia.ClassManagement.Controllers
         }
 
 
-        public ActionResult Email(int? studentId, int? eventId, string amountDue)
+        public async Task<ActionResult> Email(int? studentId, int? eventId, string amountDue)
         {
             var email = db.People.Where(x => x.Id == studentId).First().Email;
             var eventDue = db.Events.Where(x => x.Id == eventId).First().NickName;
@@ -202,12 +208,12 @@ namespace Sunodia.ClassManagement.Controllers
 
             try
             {
-                MailjetEmail.SendEmail(amountDue, eventDue, email).Wait();
+                MailjetEmail emailer = new MailjetEmail();
+                await emailer.SendEmail(amountDue, eventDue, email);
             }
             catch(Exception ex)
             {
                 response = ex.Message;
-
             }
 
 

@@ -12,8 +12,8 @@ namespace Tests
         [TestMethod]
         public void CanGetOrders()
         {
-            EBContext context = new EBContext();
-            var orders = context.GetOrders("41144700908");
+            Context context = new Context();
+            var orders = context.GetOrders("34912353790");
 
             Assert.AreEqual("", orders.orders.First().name);
 
@@ -22,21 +22,9 @@ namespace Tests
         [TestMethod]
         public void CanGetEvents()
         {
-            EBContext context = new EBContext();
-            DateTime newerThan = new DateTime(2017, 1, 1);
+            Context context = new Context();
+            DateTime newerThan = new DateTime(2012, 1, 1);
             var events = context.GetEventsNewerThan(newerThan);
-            foreach(var ebEvent in events)
-            {
-                var orders = context.GetOrders(ebEvent.id);
-                if(orders.orders.Count() > 0)
-                {
-                    foreach(var order in orders.orders)
-                    {
-                        var result = order.last_name;
-                    }
-                }
-
-            }
 
 
         }
@@ -44,7 +32,7 @@ namespace Tests
         [TestMethod]
         public void CanGetEvent()
         {
-            EBContext context = new EBContext();
+            Context context = new Context();
             var events = context.GetEvent("34912353790");
 
             Assert.AreEqual("", events.name);
@@ -52,7 +40,7 @@ namespace Tests
         [TestMethod]
         public void CanGetVenue()
         {
-            EBContext context = new EBContext();
+            Context context = new Context();
             var venue = context.GetVenue("21687115");
 
             Assert.AreEqual("Sunodía Prayer Counseling", venue.name);

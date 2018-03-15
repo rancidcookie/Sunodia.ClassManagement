@@ -12,7 +12,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class QBAccountsController : Controller
     {
-        private sunodiaEntities db = new sunodiaEntities();
+        private fhiEntities db = new fhiEntities();
 
         // GET: QBAccounts
         public ActionResult Index()
