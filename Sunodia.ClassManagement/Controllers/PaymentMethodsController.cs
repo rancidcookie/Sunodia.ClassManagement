@@ -12,7 +12,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class PaymentMethodsController : Controller
     {
-        private fhiEntities db = new fhiEntities();
+        private sunodiaEntities db = new sunodiaEntities();
 
         // GET: PaymentMethods
         public ActionResult Index()

@@ -17,7 +17,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class EventStudentsController : Controller
     {
-        private fhiEntities db = new fhiEntities();
+        private sunodiaEntities db = new sunodiaEntities();
 
         // GET: EventStudents
         public ActionResult Index(int? eventId)
@@ -112,7 +112,7 @@ namespace Sunodia.ClassManagement.Controllers
 
             ViewBag.EventId = EventId;
             ViewBag.EventNickName = myEvent.NickName;
-            return View(students);
+            return View(students.ToList());
         }
 
         [HttpPost]

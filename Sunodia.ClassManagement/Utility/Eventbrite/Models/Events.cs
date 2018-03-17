@@ -41,6 +41,8 @@ namespace Sunodia.ClassManagement.Utility.Eventbrite.Models
         public string venue_id { get; set; }
         [DataMember]
         public string format_id { get; set; }
+        [DataMember]
+        public string url { get; set; }
         //public Dictionary<long, Ticket> Tickets = new Dictionary<long, Ticket>();
 
         //private List<Attendee> attendees;

@@ -9,13 +9,15 @@ namespace Tests
     public class TestEmail
     {
         [TestMethod]
-        public async Task CanSendEmail()
+        public async Task TestMethod1Async()
         {
-            MailjetEmail mail = new MailjetEmail();
-            await mail.SendEmail("22.00","test event", "dan@rafferty.biz");
+
+            //MailjetEmail mail = new MailjetEmail();
+            //var myTawsk = Task.Run(() => MailjetEmail.SendEmail("22.00", "test eve nt", "dan@rafferty.biz"));
+            //MailjetEmail.SendEmail("22.00", "test eve nt", "dan@rafferty.biz").Wait();
+            //return myTawsk;
+            //await MailjetEmail.SendEmail("22.00", "test eve nt", "dan@rafferty.biz");
 
         }
-
-
     }
 }

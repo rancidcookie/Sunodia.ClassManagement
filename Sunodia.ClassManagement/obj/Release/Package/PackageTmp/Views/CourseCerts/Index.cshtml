@@ -1,0 +1,47 @@
+﻿@model Sunodia.ClassManagement.Models.CourseCertViewModel
+
+@{
+    ViewBag.Title = "Certificates";
+}
+
+<h2>Certificates for @Model.Course.CourseName</h2>
+<p>
+</p>
+<table class="table">
+
+@foreach (var item in Model.Course.CourseCerts) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Certificate.CertName)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+</p>
+<p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.AllCerts, "Add Certificates", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+        </div>
+    </div>
+    @using (Html.BeginForm("Create", "CourseCerts",FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.CourseId)
+        @Html.DropDownList("CertId", Model.AllCerts, htmlAttributes: new { @class = "form-control" })
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Back to Edit", "Edit", "Cours", new { id = Model.CourseId }, null)
+    </div>
+</p>

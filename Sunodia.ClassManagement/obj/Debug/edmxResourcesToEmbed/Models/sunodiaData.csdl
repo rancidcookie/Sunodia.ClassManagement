@@ -1,0 +1,997 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sunodiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RegistrationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ClassAttendees" Relationship="sunodiaModel.FK_ClassAttendees_ToRegistrationTypes" FromRole="RegistrationType" ToRole="ClassAttendee" />
+    <NavigationProperty Name="EventTransactionStudents" Relationship="sunodiaModel.FK_EventTransactionStudent_ToRegistrationType" FromRole="RegistrationType" ToRole="EventTransactionStudent" />
+  </EntityType>
+  <EntityContainer Name="sunodiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RegistrationTypes" EntityType="Self.RegistrationType" />
+    <EntitySet Name="vwRegistrationTotals" EntityType="sunodiaModel.vwRegistrationTotal" />
+    <EntitySet Name="vwStudentTotals" EntityType="sunodiaModel.vwStudentTotal" />
+    <EntitySet Name="Books" EntityType="sunodiaModel.Book" />
+    <EntitySet Name="BooksPerClasses" EntityType="sunodiaModel.BooksPerClass" />
+    <EntitySet Name="Certificates" EntityType="sunodiaModel.Certificate" />
+    <EntitySet Name="ClassAttendees" EntityType="sunodiaModel.ClassAttendee" />
+    <EntitySet Name="CourseCerts" EntityType="sunodiaModel.CourseCert" />
+    <EntitySet Name="CourseFormats" EntityType="sunodiaModel.CourseFormat" />
+    <EntitySet Name="CourseMaterials" EntityType="sunodiaModel.CourseMaterial" />
+    <EntitySet Name="Courses" EntityType="sunodiaModel.Cours" />
+    <EntitySet Name="EventbriteEvents" EntityType="sunodiaModel.EventbriteEvent" />
+    <EntitySet Name="EventCost2Student" EntityType="sunodiaModel.EventCost2Student" />
+    <EntitySet Name="Events" EntityType="sunodiaModel.Event" />
+    <EntitySet Name="EventStudents" EntityType="sunodiaModel.EventStudent" />
+    <EntitySet Name="EventTransactions" EntityType="sunodiaModel.EventTransaction" />
+    <EntitySet Name="EventTransactionComments" EntityType="sunodiaModel.EventTransactionComment" />
+    <EntitySet Name="EventTransactionStudents" EntityType="sunodiaModel.EventTransactionStudent" />
+    <EntitySet Name="EventVenues" EntityType="sunodiaModel.EventVenue" />
+    <EntitySet Name="Frequencies" EntityType="sunodiaModel.Frequency" />
+    <EntitySet Name="Groups" EntityType="sunodiaModel.Group" />
+    <EntitySet Name="MiscTransactions" EntityType="sunodiaModel.MiscTransaction" />
+    <EntitySet Name="PaymentMethods" EntityType="sunodiaModel.PaymentMethod" />
+    <EntitySet Name="People" EntityType="sunodiaModel.Person" />
+    <EntitySet Name="PersonGroups" EntityType="sunodiaModel.PersonGroup" />
+    <EntitySet Name="QBAccounts" EntityType="sunodiaModel.QBAccount" />
+    <EntitySet Name="StudentCosts" EntityType="sunodiaModel.StudentCost" />
+    <EntitySet Name="TransactionCategories" EntityType="sunodiaModel.TransactionCategory" />
+    <EntitySet Name="Vendors" EntityType="sunodiaModel.Vendor" />
+    <EntitySet Name="Venues" EntityType="sunodiaModel.Venue" />
+    <EntitySet Name="VenueTypes" EntityType="sunodiaModel.VenueType" />
+    <EntitySet Name="vwEventTransactions" EntityType="sunodiaModel.vwEventTransaction" />
+    <EntitySet Name="vwFullPeoples" EntityType="sunodiaModel.vwFullPeople" />
+    <EntitySet Name="vwGroups" EntityType="sunodiaModel.vwGroup" />
+    <AssociationSet Name="FK_CourseCerts_Certificates" Association="sunodiaModel.FK_CourseCerts_Certificates">
+      <End Role="Certificate" EntitySet="Certificates" />
+      <End Role="CourseCert" EntitySet="CourseCerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPeople" Association="sunodiaModel.FK_ClassAttendees_ToPeople">
+      <End Role="Person" EntitySet="People" />
+      <End Role="ClassAttendee" EntitySet="ClassAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToRegistrationTypes" Association="sunodiaModel.FK_ClassAttendees_ToRegistrationTypes">
+      <End Role="RegistrationType" EntitySet="RegistrationTypes" />
+      <End Role="ClassAttendee" EntitySet="ClassAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseCerts_Course" Association="sunodiaModel.FK_CourseCerts_Course">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseCert" EntitySet="CourseCerts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseFormats_ToQBAccounts" Association="sunodiaModel.FK_CourseFormats_ToQBAccounts">
+      <End Role="QBAccount" EntitySet="QBAccounts" />
+      <End Role="CourseFormat" EntitySet="CourseFormats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaterials_ToCourse" Association="sunodiaModel.FK_CourseMaterials_ToCourse">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="CourseMaterial" EntitySet="CourseMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseMaterials_ToVendor" Association="sunodiaModel.FK_CourseMaterials_ToVendor">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="CourseMaterial" EntitySet="CourseMaterials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Classes_ToCourses" Association="sunodiaModel.FK_Classes_ToCourses">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventbriteEvents_ToEvents" Association="sunodiaModel.FK_EventbriteEvents_ToEvents">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventbriteEvent" EntitySet="EventbriteEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventCost2Student_ToEvent" Association="sunodiaModel.FK_EventCost2Student_ToEvent">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventCost2Student" EntitySet="EventCost2Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToClasses" Association="sunodiaModel.FK_ClassAttendees_ToClasses">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_ToFacilitator" Association="sunodiaModel.FK_Events_ToFacilitator">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_ToFrequency" Association="sunodiaModel.FK_Events_ToFrequency">
+      <End Role="Frequency" EntitySet="Frequencies" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStudents_Events" Association="sunodiaModel.FK_EventStudents_Events">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventStudent" EntitySet="EventStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToEvent" Association="sunodiaModel.FK_EventTransaction_ToEvent">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventTransaction" EntitySet="EventTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventVenues_ToEvents" Association="sunodiaModel.FK_EventVenues_ToEvents">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="EventVenue" EntitySet="EventVenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToClasses" Association="sunodiaModel.FK_MiscTransactions_ToClasses">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventStudents_People" Association="sunodiaModel.FK_EventStudents_People">
+      <End Role="Person" EntitySet="People" />
+      <End Role="EventStudent" EntitySet="EventStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToPaymentMethod" Association="sunodiaModel.FK_EventTransaction_ToPaymentMethod">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="EventTransaction" EntitySet="EventTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransaction_ToTransactionCategory" Association="sunodiaModel.FK_EventTransaction_ToTransactionCategory">
+      <End Role="TransactionCategory" EntitySet="TransactionCategories" />
+      <End Role="EventTransaction" EntitySet="EventTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionComment_EventTransaction" Association="sunodiaModel.FK_EventTransactionComment_EventTransaction">
+      <End Role="EventTransaction" EntitySet="EventTransactions" />
+      <End Role="EventTransactionComment" EntitySet="EventTransactionComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_EventTransaction" Association="sunodiaModel.FK_EventTransactionStudent_EventTransaction">
+      <End Role="EventTransaction" EntitySet="EventTransactions" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_People" Association="sunodiaModel.FK_EventTransactionStudent_People">
+      <End Role="Person" EntitySet="People" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventTransactionStudent_ToRegistrationType" Association="sunodiaModel.FK_EventTransactionStudent_ToRegistrationType">
+      <End Role="RegistrationType" EntitySet="RegistrationTypes" />
+      <End Role="EventTransactionStudent" EntitySet="EventTransactionStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EventVenues_ToVenue" Association="sunodiaModel.FK_EventVenues_ToVenue">
+      <End Role="Venue" EntitySet="Venues" />
+      <End Role="EventVenue" EntitySet="EventVenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonGroups_ToGroups" Association="sunodiaModel.FK_PersonGroups_ToGroups">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="PersonGroup" EntitySet="PersonGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPayer" Association="sunodiaModel.FK_ClassAttendees_ToPayer">
+      <End Role="Person" EntitySet="People" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassAttendees_ToPaymentType" Association="sunodiaModel.FK_ClassAttendees_ToPaymentType">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToPayer" Association="sunodiaModel.FK_MiscTransactions_ToPayer">
+      <End Role="Person" EntitySet="People" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToPaymentType" Association="sunodiaModel.FK_MiscTransactions_ToPaymentType">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MiscTransactions_ToQBAccounts" Association="sunodiaModel.FK_MiscTransactions_ToQBAccounts">
+      <End Role="QBAccount" EntitySet="QBAccounts" />
+      <End Role="MiscTransaction" EntitySet="MiscTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonGroups_ToPeople" Association="sunodiaModel.FK_PersonGroups_ToPeople">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonGroup" EntitySet="PersonGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Venue_VenueType" Association="sunodiaModel.FK_Venue_VenueType">
+      <End Role="VenueType" EntitySet="VenueTypes" />
+      <End Role="Venue" EntitySet="Venues" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="vwRegistrationTotal">
+    <Key>
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="Description" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="vwStudentTotal">
+    <Key>
+      <PropertyRef Name="classid" />
+    </Key>
+    <Property Name="classid" Type="Int32" Nullable="false" />
+    <Property Name="StudentCount" Type="Int32" />
+    <Property Name="TotalPaid" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BooksPerClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="Charge" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Certificate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CertName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CertDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CourseCerts" Relationship="sunodiaModel.FK_CourseCerts_Certificates" FromRole="Certificate" ToRole="CourseCert" />
+  </EntityType>
+  <EntityType Name="ClassAttendee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="PayerId" Type="Int32" />
+    <Property Name="Paid" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="RegistrationTypeId" Type="Int32" />
+    <Property Name="Attending" Type="Boolean" Nullable="false" />
+    <Property Name="QBDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentTypeId" Type="Int32" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_ClassAttendees_ToPeople" FromRole="ClassAttendee" ToRole="Person" />
+    <NavigationProperty Name="RegistrationType" Relationship="sunodiaModel.FK_ClassAttendees_ToRegistrationTypes" FromRole="ClassAttendee" ToRole="RegistrationType" />
+  </EntityType>
+  <EntityType Name="CourseCert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CertId" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Certificate" Relationship="sunodiaModel.FK_CourseCerts_Certificates" FromRole="CourseCert" ToRole="Certificate" />
+    <NavigationProperty Name="Cours" Relationship="sunodiaModel.FK_CourseCerts_Course" FromRole="CourseCert" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="CourseFormat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Format" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountId" Type="Int32" />
+    <NavigationProperty Name="QBAccount" Relationship="sunodiaModel.FK_CourseFormats_ToQBAccounts" FromRole="CourseFormat" ToRole="QBAccount" />
+  </EntityType>
+  <EntityType Name="CourseMaterial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="MaterialName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CostToStudent" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CostToOrg" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="PurchaseOptions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VendorId" Type="Int32" />
+    <NavigationProperty Name="Cours" Relationship="sunodiaModel.FK_CourseMaterials_ToCourse" FromRole="CourseMaterial" ToRole="Cours" />
+    <NavigationProperty Name="Vendor" Relationship="sunodiaModel.FK_CourseMaterials_ToVendor" FromRole="CourseMaterial" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CourseNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cert" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CourseCerts" Relationship="sunodiaModel.FK_CourseCerts_Course" FromRole="Cours" ToRole="CourseCert" />
+    <NavigationProperty Name="CourseMaterials" Relationship="sunodiaModel.FK_CourseMaterials_ToCourse" FromRole="Cours" ToRole="CourseMaterial" />
+    <NavigationProperty Name="Events" Relationship="sunodiaModel.FK_Classes_ToCourses" FromRole="Cours" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="EventbriteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventbriteEventId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EventbriteEventURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventbriteEvents_ToEvents" FromRole="EventbriteEvent" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="EventCost2Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="CostDescription" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Required" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventCost2Student_ToEvent" FromRole="EventCost2Student" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NickName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="FacilitatorId" Type="Int32" />
+    <Property Name="FrequencyId" Type="Int32" />
+    <NavigationProperty Name="Cours" Relationship="sunodiaModel.FK_Classes_ToCourses" FromRole="Event" ToRole="Cours" />
+    <NavigationProperty Name="EventbriteEvents" Relationship="sunodiaModel.FK_EventbriteEvents_ToEvents" FromRole="Event" ToRole="EventbriteEvent" />
+    <NavigationProperty Name="EventCost2Student" Relationship="sunodiaModel.FK_EventCost2Student_ToEvent" FromRole="Event" ToRole="EventCost2Student" />
+    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_ClassAttendees_ToClasses" FromRole="Event" ToRole="MiscTransaction" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_Events_ToFacilitator" FromRole="Event" ToRole="Person" />
+    <NavigationProperty Name="Frequency" Relationship="sunodiaModel.FK_Events_ToFrequency" FromRole="Event" ToRole="Frequency" />
+    <NavigationProperty Name="EventStudents" Relationship="sunodiaModel.FK_EventStudents_Events" FromRole="Event" ToRole="EventStudent" />
+    <NavigationProperty Name="EventTransactions" Relationship="sunodiaModel.FK_EventTransaction_ToEvent" FromRole="Event" ToRole="EventTransaction" />
+    <NavigationProperty Name="EventVenues" Relationship="sunodiaModel.FK_EventVenues_ToEvents" FromRole="Event" ToRole="EventVenue" />
+    <NavigationProperty Name="MiscTransactions1" Relationship="sunodiaModel.FK_MiscTransactions_ToClasses" FromRole="Event" ToRole="MiscTransaction" />
+  </EntityType>
+  <EntityType Name="EventStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventStudents_Events" FromRole="EventStudent" ToRole="Event" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_EventStudents_People" FromRole="EventStudent" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="EventTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FHICredit" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TransactionCategoryId" Type="Int32" />
+    <Property Name="PaymentMethodId" Type="Int32" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventTransaction_ToEvent" FromRole="EventTransaction" ToRole="Event" />
+    <NavigationProperty Name="PaymentMethod" Relationship="sunodiaModel.FK_EventTransaction_ToPaymentMethod" FromRole="EventTransaction" ToRole="PaymentMethod" />
+    <NavigationProperty Name="TransactionCategory" Relationship="sunodiaModel.FK_EventTransaction_ToTransactionCategory" FromRole="EventTransaction" ToRole="TransactionCategory" />
+    <NavigationProperty Name="EventTransactionComments" Relationship="sunodiaModel.FK_EventTransactionComment_EventTransaction" FromRole="EventTransaction" ToRole="EventTransactionComment" />
+    <NavigationProperty Name="EventTransactionStudents" Relationship="sunodiaModel.FK_EventTransactionStudent_EventTransaction" FromRole="EventTransaction" ToRole="EventTransactionStudent" />
+  </EntityType>
+  <EntityType Name="EventTransactionComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventTransactionId" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EventTransaction" Relationship="sunodiaModel.FK_EventTransactionComment_EventTransaction" FromRole="EventTransactionComment" ToRole="EventTransaction" />
+  </EntityType>
+  <EntityType Name="EventTransactionStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventTransactionId" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="RegistrationTypeId" Type="Int32" />
+    <NavigationProperty Name="EventTransaction" Relationship="sunodiaModel.FK_EventTransactionStudent_EventTransaction" FromRole="EventTransactionStudent" ToRole="EventTransaction" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_EventTransactionStudent_People" FromRole="EventTransactionStudent" ToRole="Person" />
+    <NavigationProperty Name="RegistrationType" Relationship="sunodiaModel.FK_EventTransactionStudent_ToRegistrationType" FromRole="EventTransactionStudent" ToRole="RegistrationType" />
+  </EntityType>
+  <EntityType Name="EventVenue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VenueId" Type="Int32" Nullable="false" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_EventVenues_ToEvents" FromRole="EventVenue" ToRole="Event" />
+    <NavigationProperty Name="Venue" Relationship="sunodiaModel.FK_EventVenues_ToVenue" FromRole="EventVenue" ToRole="Venue" />
+  </EntityType>
+  <EntityType Name="Frequency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Frequency1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Events" Relationship="sunodiaModel.FK_Events_ToFrequency" FromRole="Frequency" ToRole="Event" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PersonGroups" Relationship="sunodiaModel.FK_PersonGroups_ToGroups" FromRole="Group" ToRole="PersonGroup" />
+  </EntityType>
+  <EntityType Name="MiscTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="Int32" Nullable="false" />
+    <Property Name="PayerId" Type="Int32" />
+    <Property Name="Paid" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="QBDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentTypeId" Type="Int32" />
+    <Property Name="QBAccount" Type="Int32" />
+    <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Event" Relationship="sunodiaModel.FK_ClassAttendees_ToClasses" FromRole="MiscTransaction" ToRole="Event" />
+    <NavigationProperty Name="Event1" Relationship="sunodiaModel.FK_MiscTransactions_ToClasses" FromRole="MiscTransaction" ToRole="Event" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_ClassAttendees_ToPayer" FromRole="MiscTransaction" ToRole="Person" />
+    <NavigationProperty Name="PaymentMethod" Relationship="sunodiaModel.FK_ClassAttendees_ToPaymentType" FromRole="MiscTransaction" ToRole="PaymentMethod" />
+    <NavigationProperty Name="Person1" Relationship="sunodiaModel.FK_MiscTransactions_ToPayer" FromRole="MiscTransaction" ToRole="Person" />
+    <NavigationProperty Name="PaymentMethod1" Relationship="sunodiaModel.FK_MiscTransactions_ToPaymentType" FromRole="MiscTransaction" ToRole="PaymentMethod" />
+    <NavigationProperty Name="QBAccount1" Relationship="sunodiaModel.FK_MiscTransactions_ToQBAccounts" FromRole="MiscTransaction" ToRole="QBAccount" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentMethod1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Percentage" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="PlusFee" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <NavigationProperty Name="EventTransactions" Relationship="sunodiaModel.FK_EventTransaction_ToPaymentMethod" FromRole="PaymentMethod" ToRole="EventTransaction" />
+    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_ClassAttendees_ToPaymentType" FromRole="PaymentMethod" ToRole="MiscTransaction" />
+    <NavigationProperty Name="MiscTransactions1" Relationship="sunodiaModel.FK_MiscTransactions_ToPaymentType" FromRole="PaymentMethod" ToRole="MiscTransaction" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ClassAttendees" Relationship="sunodiaModel.FK_ClassAttendees_ToPeople" FromRole="Person" ToRole="ClassAttendee" />
+    <NavigationProperty Name="Events" Relationship="sunodiaModel.FK_Events_ToFacilitator" FromRole="Person" ToRole="Event" />
+    <NavigationProperty Name="EventStudents" Relationship="sunodiaModel.FK_EventStudents_People" FromRole="Person" ToRole="EventStudent" />
+    <NavigationProperty Name="EventTransactionStudents" Relationship="sunodiaModel.FK_EventTransactionStudent_People" FromRole="Person" ToRole="EventTransactionStudent" />
+    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_ClassAttendees_ToPayer" FromRole="Person" ToRole="MiscTransaction" />
+    <NavigationProperty Name="MiscTransactions1" Relationship="sunodiaModel.FK_MiscTransactions_ToPayer" FromRole="Person" ToRole="MiscTransaction" />
+    <NavigationProperty Name="PersonGroups" Relationship="sunodiaModel.FK_PersonGroups_ToPeople" FromRole="Person" ToRole="PersonGroup" />
+  </EntityType>
+  <EntityType Name="PersonGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="sunodiaModel.FK_PersonGroups_ToGroups" FromRole="PersonGroup" ToRole="Group" />
+    <NavigationProperty Name="Person" Relationship="sunodiaModel.FK_PersonGroups_ToPeople" FromRole="PersonGroup" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="QBAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="QBAccount1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="IsCredit" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CourseFormats" Relationship="sunodiaModel.FK_CourseFormats_ToQBAccounts" FromRole="QBAccount" ToRole="CourseFormat" />
+    <NavigationProperty Name="MiscTransactions" Relationship="sunodiaModel.FK_MiscTransactions_ToQBAccounts" FromRole="QBAccount" ToRole="MiscTransaction" />
+  </EntityType>
+  <EntityType Name="StudentCost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DefaultAmount" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="TransactionCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EventTransactions" Relationship="sunodiaModel.FK_EventTransaction_ToTransactionCategory" FromRole="TransactionCategory" ToRole="EventTransaction" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CourseMaterials" Relationship="sunodiaModel.FK_CourseMaterials_ToVendor" FromRole="Vendor" ToRole="CourseMaterial" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="VenueTypeId" Type="Int32" />
+    <NavigationProperty Name="EventVenues" Relationship="sunodiaModel.FK_EventVenues_ToVenue" FromRole="Venue" ToRole="EventVenue" />
+    <NavigationProperty Name="VenueType" Relationship="sunodiaModel.FK_Venue_VenueType" FromRole="Venue" ToRole="VenueType" />
+  </EntityType>
+  <EntityType Name="VenueType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Venues" Relationship="sunodiaModel.FK_Venue_VenueType" FromRole="VenueType" ToRole="Venue" />
+  </EntityType>
+  <EntityType Name="vwEventTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="EventId" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Amount" />
+      <PropertyRef Name="FHICredit" />
+      <PropertyRef Name="DateAdded" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EventId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="FHICredit" Type="Boolean" Nullable="false" />
+    <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PaymentMethodId" Type="Int32" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="RegistrationTypeId" Type="Int32" />
+    <Property Name="RegistrationType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fee" Type="Decimal" Precision="35" Scale="11" />
+  </EntityType>
+  <EntityType Name="vwFullPeople">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Donor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Student" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MinistryPartner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MailChimp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vwGroup">
+    <Key>
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="201" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_CourseCerts_Certificates">
+    <End Type="sunodiaModel.Certificate" Role="Certificate" Multiplicity="1" />
+    <End Type="sunodiaModel.CourseCert" Role="CourseCert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCert">
+        <PropertyRef Name="CertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPeople">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="sunodiaModel.ClassAttendee" Role="ClassAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendee">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToRegistrationTypes">
+    <End Type="sunodiaModel.RegistrationType" Role="RegistrationType" Multiplicity="0..1" />
+    <End Type="sunodiaModel.ClassAttendee" Role="ClassAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassAttendee">
+        <PropertyRef Name="RegistrationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseCerts_Course">
+    <End Type="sunodiaModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="sunodiaModel.CourseCert" Role="CourseCert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseCert">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseFormats_ToQBAccounts">
+    <End Type="sunodiaModel.QBAccount" Role="QBAccount" Multiplicity="0..1" />
+    <End Type="sunodiaModel.CourseFormat" Role="CourseFormat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QBAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseFormat">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaterials_ToCourse">
+    <End Type="sunodiaModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="sunodiaModel.CourseMaterial" Role="CourseMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseMaterial">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseMaterials_ToVendor">
+    <End Type="sunodiaModel.Vendor" Role="Vendor" Multiplicity="0..1" />
+    <End Type="sunodiaModel.CourseMaterial" Role="CourseMaterial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseMaterial">
+        <PropertyRef Name="VendorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Classes_ToCourses">
+    <End Type="sunodiaModel.Cours" Role="Cours" Multiplicity="0..1" />
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventbriteEvents_ToEvents">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.EventbriteEvent" Role="EventbriteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventbriteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventCost2Student_ToEvent">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.EventCost2Student" Role="EventCost2Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventCost2Student">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToClasses">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_ToFacilitator">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="FacilitatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_ToFrequency">
+    <End Type="sunodiaModel.Frequency" Role="Frequency" Multiplicity="0..1" />
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Frequency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="FrequencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStudents_Events">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.EventStudent" Role="EventStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventStudent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToEvent">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.EventTransaction" Role="EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventVenues_ToEvents">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.EventVenue" Role="EventVenue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventVenue">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToClasses">
+    <End Type="sunodiaModel.Event" Role="Event" Multiplicity="1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventStudents_People">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="sunodiaModel.EventStudent" Role="EventStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToPaymentMethod">
+    <End Type="sunodiaModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+    <End Type="sunodiaModel.EventTransaction" Role="EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransaction_ToTransactionCategory">
+    <End Type="sunodiaModel.TransactionCategory" Role="TransactionCategory" Multiplicity="0..1" />
+    <End Type="sunodiaModel.EventTransaction" Role="EventTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransaction">
+        <PropertyRef Name="TransactionCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionComment_EventTransaction">
+    <End Type="sunodiaModel.EventTransaction" Role="EventTransaction" Multiplicity="1" />
+    <End Type="sunodiaModel.EventTransactionComment" Role="EventTransactionComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionComment">
+        <PropertyRef Name="EventTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_EventTransaction">
+    <End Type="sunodiaModel.EventTransaction" Role="EventTransaction" Multiplicity="1" />
+    <End Type="sunodiaModel.EventTransactionStudent" Role="EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="EventTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_People">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="sunodiaModel.EventTransactionStudent" Role="EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventTransactionStudent_ToRegistrationType">
+    <End Type="sunodiaModel.RegistrationType" Role="RegistrationType" Multiplicity="0..1" />
+    <End Type="sunodiaModel.EventTransactionStudent" Role="EventTransactionStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegistrationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventTransactionStudent">
+        <PropertyRef Name="RegistrationTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EventVenues_ToVenue">
+    <End Type="sunodiaModel.Venue" Role="Venue" Multiplicity="1" />
+    <End Type="sunodiaModel.EventVenue" Role="EventVenue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventVenue">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonGroups_ToGroups">
+    <End Type="sunodiaModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="sunodiaModel.PersonGroup" Role="PersonGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonGroup">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPayer">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="PayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassAttendees_ToPaymentType">
+    <End Type="sunodiaModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToPayer">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="0..1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="PayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToPaymentType">
+    <End Type="sunodiaModel.PaymentMethod" Role="PaymentMethod" Multiplicity="0..1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MiscTransactions_ToQBAccounts">
+    <End Type="sunodiaModel.QBAccount" Role="QBAccount" Multiplicity="0..1" />
+    <End Type="sunodiaModel.MiscTransaction" Role="MiscTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QBAccount">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MiscTransaction">
+        <PropertyRef Name="QBAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonGroups_ToPeople">
+    <End Type="sunodiaModel.Person" Role="Person" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="sunodiaModel.PersonGroup" Role="PersonGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PersonGroup">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Venue_VenueType">
+    <End Type="sunodiaModel.VenueType" Role="VenueType" Multiplicity="0..1" />
+    <End Type="sunodiaModel.Venue" Role="Venue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VenueType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Venue">
+        <PropertyRef Name="VenueTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

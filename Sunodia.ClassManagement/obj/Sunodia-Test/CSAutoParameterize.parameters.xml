@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="sunodiaEntities-Web.config Connection String" description="sunodiaEntities Connection String used in web.config by the application to access the database." defaultValue="Nope" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\MyDocs\\Git\\Sunodia\.ClassManagement\\Sunodia\.ClassManagement\\obj\\Sunodia-Test\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sunodiaEntities']/@connectionString" />
+  </parameter>
+</parameters>

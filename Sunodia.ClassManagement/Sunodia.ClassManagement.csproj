@@ -39,7 +39,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -47,7 +47,7 @@
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mailjet.Client, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -205,12 +205,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalysisController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\ClassesController.cs" />
+    <Compile Include="Controllers\ClassAttendeesController.cs" />
+    <Compile Include="Controllers\EventbriteController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\CoursController.cs" />
     <Compile Include="Controllers\CourseCertsController.cs" />
     <Compile Include="Controllers\CourseFormatsController.cs" />
     <Compile Include="Controllers\CourseMaterialsController.cs" />
-    <Compile Include="Controllers\EventbriteController.cs" />
     <Compile Include="Controllers\EventStudentsController.cs" />
     <Compile Include="Controllers\EventTransactionsController.cs" />
     <Compile Include="Controllers\EventVenuesController.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Controllers\TransactionCategoriesController.cs" />
     <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
+    <Compile Include="Extensions\RazorExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -270,6 +272,7 @@
     <Compile Include="Models\EventbriteEvent.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EventbriteViewModel.cs" />
     <Compile Include="Models\EventCost2Student.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
@@ -301,13 +304,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FHIData.Designer.cs">
+    <Compile Include="Models\LinkEventsViewModel.cs" />
+    <Compile Include="Models\sunodiaData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FHIData.edmx</DependentUpon>
+      <DependentUpon>sunodiaData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\FHIDBMetaData.cs" />
-    <Compile Include="Models\FHILists.cs" />
+    <Compile Include="Models\SunodiaDBMetaData.cs" />
+    <Compile Include="Models\SunodiaLists.cs" />
     <Compile Include="Models\Frequency.cs">
       <DependentUpon>FHIData.tt</DependentUpon>
     </Compile>
@@ -389,6 +393,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ChoEditableDropdown.css" />
     <None Include="Content\images\fhi_logo_1x.png" />
+    <Content Include="Content\images\ebicon-32x32.png" />
+    <Content Include="Content\images\eventbrite-logo-vector.png" />
     <Content Include="Content\images\website-under-construction.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
@@ -429,28 +435,31 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\FHIData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FHIData.edmx</DependentUpon>
+      <DependentUpon>sunodiaData.edmx</DependentUpon>
       <LastGenOutput>FHIData.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\FHIData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FHIData.edmx</DependentUpon>
+      <DependentUpon>sunodiaData.edmx</DependentUpon>
       <LastGenOutput>FHIData.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\sunodiaData.edmx.sql" />
+    <Content Include="Models\sunodiaData2.edmx.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <EntityDeploy Include="Models\FHIData.edmx">
+    <EntityDeploy Include="Models\sunodiaData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FHIData.Designer.cs</LastGenOutput>
+      <LastGenOutput>sunodiaData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FHIData.edmx.diagram">
-      <DependentUpon>FHIData.edmx</DependentUpon>
+    <Content Include="Models\sunodiaData.edmx.diagram">
+      <DependentUpon>sunodiaData.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FindingHomeInstitute - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
     <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
     <None Include="Properties\PublishProfiles\sunodia1 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\SunodiaTest - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChoEditableDropDown.js" />
     <Content Include="Scripts\fhi.js" />
@@ -470,7 +479,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ZMcombobox.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -611,7 +622,12 @@
     <Content Include="Views\Frequencies\Edit.cshtml" />
     <Content Include="Views\Frequencies\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Eventbrite\Index.cshtml" />
+    <Content Include="Views\Eventbrite\LinkEvent.cshtml" />
     <None Include="Web.FHI.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Sunodia-Test.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Sunodia.config">
@@ -620,7 +636,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Eventbrite\" />
     <Folder Include="Views\Group\" />
   </ItemGroup>
   <ItemGroup>
@@ -649,12 +664,24 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sunodia|AnyCPU'">
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Sunodia-Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>

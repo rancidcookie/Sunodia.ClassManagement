@@ -1,8 +1,4 @@
-
-.vs/Sunodia.ClassManagement/v15/.suo
-.vs/Sunodia.ClassManagement/v15/.suo
-*.dll
-*.pdb
 bin
+*.jfm
 obj
-.vs/Sunodia.ClassManagement/v15/.suo
+*.csproj.user

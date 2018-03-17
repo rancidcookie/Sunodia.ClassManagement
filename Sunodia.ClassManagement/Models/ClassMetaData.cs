@@ -20,14 +20,6 @@ namespace Sunodia.ClassManagement.Models
         [DisplayName("Nick Name")]
         public string NickName { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:dd - MMM - yyyy}")]
-        //[DisplayName("Registration Date")]
-        //public DateTime RegistrationDate { get; set; }
-
-        //[DisplayFormat(DataFormatString = "{0:dd - MMM - yyyy}")]
-        //[DisplayName("Course Date")]
-        //public DateTime CourseDate { get; set; }
-
         [DisplayName("Start Date")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
@@ -38,18 +30,6 @@ namespace Sunodia.ClassManagement.Models
 
         [DisplayName("Type")]
         public int CourseType { get; set; }
-
-
-        //[DisplayName("Material Cost")]
-        //public Nullable<decimal> MaterialCost { get; set; }
-        //[DisplayName("Course Format")]
-        //public Nullable<int> CourseFormatId { get; set; }
-        //[DisplayName("Book Cost")]
-        //public Nullable<decimal> BookCost { get; set; }
-        //[DisplayName("Book")]
-        //public Nullable<int> BookId { get; set; }
-        //[DisplayName("Registration Cost")]
-        //public Nullable<decimal> RegistrationCost { get; set; }
 
         [DisplayName("Facilitator")]
         public Nullable<int> FacilitatorId { get; set; }
