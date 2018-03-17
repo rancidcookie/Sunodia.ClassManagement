@@ -1,3 +1,5 @@
+Getting an error linking in FHI
+Need to level code to Git
 Dev site I'm getting an error when trying to edit a person
 So we're going to change the Registration types to Default Student Costs
 In manage event update the "Typical Costs" to use the pull down from StudentCosts
@@ -6,7 +8,7 @@ In manage student, when you pick something from the list it adds the cost
 Need to add api keys from FHI to sunodia azure config
 
 
-í =  alt 237
+í =  alt 2371
 
 sunodia & FHI deployment
 user: dansunodia

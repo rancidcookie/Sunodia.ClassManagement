@@ -21,6 +21,7 @@ Global
 		FHI|Any CPU = FHI|Any CPU
 		Release|Any CPU = Release|Any CPU
 		Sunodia|Any CPU = Sunodia|Any CPU
+		Sunodia-Test|Any CPU = Sunodia-Test|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{463AEB29-F553-458B-98B7-236F987422BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -31,6 +32,8 @@ Global
 		{463AEB29-F553-458B-98B7-236F987422BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia|Any CPU.ActiveCfg = Sunodia|Any CPU
 		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia|Any CPU.Build.0 = Sunodia|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia-Test|Any CPU.ActiveCfg = Sunodia-Test|Any CPU
+		{463AEB29-F553-458B-98B7-236F987422BB}.Sunodia-Test|Any CPU.Build.0 = Sunodia-Test|Any CPU
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.FHI|Any CPU.ActiveCfg = FHI|Any CPU
@@ -39,6 +42,8 @@ Global
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia|Any CPU.ActiveCfg = Sunodia|Any CPU
 		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia|Any CPU.Build.0 = Sunodia|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia-Test|Any CPU.ActiveCfg = Sunodia-Test|Any CPU
+		{04D9B934-4B7C-4A92-A69D-08F2E4B35DA7}.Sunodia-Test|Any CPU.Build.0 = Sunodia-Test|Any CPU
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -51,6 +56,7 @@ Global
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.ActiveCfg = Debug|Any CPU
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.Build.0 = Debug|Any CPU
 		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia|Any CPU.Deploy.0 = Debug|Any CPU
+		{95F26A29-E31C-4D23-913E-08F5B5296BA9}.Sunodia-Test|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

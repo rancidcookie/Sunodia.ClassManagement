@@ -1,8 +1,0 @@
-D:\MyDocs\vs\FHI\FHI\Tests\bin\FHI\Tests.dll
-D:\MyDocs\vs\FHI\FHI\Tests\bin\FHI\Tests.pdb
-D:\MyDocs\vs\FHI\FHI\Tests\bin\FHI\Eventbrite.dll
-D:\MyDocs\vs\FHI\FHI\Tests\bin\FHI\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-D:\MyDocs\vs\FHI\FHI\Tests\bin\FHI\Eventbrite.pdb
-D:\MyDocs\vs\FHI\FHI\Tests\obj\FHI\Tests.csprojResolveAssemblyReference.cache
-D:\MyDocs\vs\FHI\FHI\Tests\obj\FHI\Tests.dll
-D:\MyDocs\vs\FHI\FHI\Tests\obj\FHI\Tests.pdb

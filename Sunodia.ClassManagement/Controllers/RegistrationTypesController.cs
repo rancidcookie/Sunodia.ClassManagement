@@ -12,7 +12,7 @@ namespace Sunodia.ClassManagement.Controllers
 {
     public class RegistrationTypesController : Controller
     {
-        private fhiEntities db = new fhiEntities();
+        private sunodiaEntities db = new sunodiaEntities();
 
         // GET: RegistrationTypes
         public ActionResult Index()

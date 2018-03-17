@@ -22,7 +22,7 @@ namespace Sunodia.ClassManagement.Models
         [DisplayName("Student Cost") ]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:c}")]
         public decimal CostToStudent { get; set; }
-        [DisplayName("FHI Cost")]
+        [DisplayName("Sunodia Cost")]
         [DisplayFormat(ApplyFormatInEditMode = false, DataFormatString = "{0:c}")]
         public decimal CostToOrg { get; set; }
         [DisplayName("Options")]

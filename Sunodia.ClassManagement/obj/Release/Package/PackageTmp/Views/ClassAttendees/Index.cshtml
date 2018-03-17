@@ -1,0 +1,113 @@
+﻿@model Sunodia.ClassManagement.Models.ClassTransactionViewModel
+
+@{
+    ViewBag.Title = "Class Transactions";
+}
+
+@*@model Sunodia.ClassManagement.Models.ClassTransactionViewModel
+
+    @{
+        ViewBag.Title = "Class Transactions";
+    }*@
+
+<h2>@ViewBag.Title</h2>
+<h3>@Model.ClassName</h3>
+<p>
+<p><a href="@Url.Action("ManageCourses", "Home")" class="btn btn-primary btn-lg">Back &raquo;</a></p>
+<h4>Student Transactions</h4>
+
+@Html.ActionLink("Create New Student Transaction", "Create", new { id = Model.ClassId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().Paid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().Attending)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().PaymentMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentTransactions.First().RegistrationType)
+        </th>
+        <th>
+    </tr>
+
+    @foreach (var item in Model.StudentTransactions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Paid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attending)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationType)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TransactionId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TransactionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TransactionId })
+            </td>
+        </tr>
+    }
+
+</table>
+<hr style="height:30px" />
+
+<h4>Miscellaneous Transactions</h4>
+
+@Html.ActionLink("Create New Miscellaneous Transaction", "CreateMisc", new { id = Model.ClassId })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MiscTransactions.First().TransactionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiscTransactions.First().TransactionType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiscTransactions.First().Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiscTransactions.First().PaymentMethod)
+        </th>
+    </tr>
+    @foreach (var item in Model.MiscTransactions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            </tr>
+    }
+</table>
