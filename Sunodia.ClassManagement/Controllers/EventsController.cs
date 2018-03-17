@@ -66,6 +66,7 @@ namespace Sunodia.ClassManagement.Controllers
                 @class.Active = true;
                 db.Events.Add(@class);
                 db.SaveChanges();
+                AddDefaultCostsToDb(@class.Id);
                 return RedirectToAction("Index");
             }
 
@@ -232,6 +233,17 @@ namespace Sunodia.ClassManagement.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddDefaultCosts(int Id)
+        {
+            AddDefaultCostsToDb(Id);
+            return RedirectToAction("Costs", new
+            {
+                id = Id
+            });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -239,6 +251,22 @@ namespace Sunodia.ClassManagement.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void AddDefaultCostsToDb(int eventId)
+        {
+            var defaultCosts = db.StudentCosts.Where(x => x.Id > 0);
+            foreach (var cost in defaultCosts)
+            {
+                var newEventCostToStudent = new EventCost2Student()
+                {
+                    EventId = eventId,
+                    Cost = cost.DefaultAmount ?? 0,
+                    CostDescription = cost.Description
+                };
+                db.EventCost2Student.Add(newEventCostToStudent);
+            }
+            db.SaveChanges();
         }
     }
 }
