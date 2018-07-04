@@ -243,7 +243,7 @@ namespace Sunodia.ClassManagement.Controllers
             eventTrx.EventDescs = db.EventCost2Student.Where(x=>x.EventId == eventId)
               .Select(c => new SelectListItem
               {
-                  Value = c.CostDescription,
+                  Value = string.Concat(c.CostDescription, " | ", c.Cost),
                   Text = c.CostDescription
               });
 
@@ -254,14 +254,7 @@ namespace Sunodia.ClassManagement.Controllers
                   Text = r.PaymentMethod1
               });
 
-
-            //eventTrx.RegTypes = db.RegistrationTypes
-            //  .Select(c => new SelectListItem
-            //  {
-            //      Value = c.Id.ToString(),
-            //      Text = c.Description
-            //  });
-            //eventTrx.RegTypes.ToList().Add(new SelectListItem { Value = null, Text = "N/A" });
+            eventTrx.DefaultCosts = db.StudentCosts.ToList();
 
             return View(eventTrx);
         }
@@ -280,7 +273,7 @@ namespace Sunodia.ClassManagement.Controllers
                 var amountPaid = amountArray[1];
                 eventId = Convert.ToInt32(collection["EventId"]);
                 studentId = Convert.ToInt32(collection["Student.Id"]);
-                var desc = collection["Description"];
+                var desc = ParseDescription(collection["Description"]);
                 var regTypeId = collection["RegistrationTypeId"];
                 var paymentMethodId = collection["PaymentMethodId"];
 
@@ -299,6 +292,14 @@ namespace Sunodia.ClassManagement.Controllers
                 eventId = eventId,
                 studentId = studentId
             });
+        }
+
+        private string ParseDescription(string toParse)
+        {
+            var array = toParse.Split('|');
+            var retVal = array[0];
+
+            return retVal;
         }
 
         private void AddTrx(int eventId, int studentId, string desc, decimal amount, bool isCredit, string regTypeId, string payemntMethodId)

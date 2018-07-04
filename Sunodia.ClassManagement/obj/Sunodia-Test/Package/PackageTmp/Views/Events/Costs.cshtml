@@ -8,9 +8,20 @@
 <h2>@Model.NickName</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
     List typical costs to the student for this event
 </p>
+@using (Html.BeginForm("AddDefaultCosts", "Events", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(s=>s.Id)
+    <tr>
+        <td>
+            <input type="submit" value="Add Defaults" class="btn btn-default" />
+        </td>
+    </tr>
+}
+
+
 <table class="table">
     <tr>
         <th>
@@ -39,6 +50,7 @@
                 @Html.DisplayFor(modelItem => item.Required)
             </td>
             <td>
+                @Html.ActionLink("Edit", "EditCost", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "CostDelete", new { id = item.Id })
             </td>
         </tr>

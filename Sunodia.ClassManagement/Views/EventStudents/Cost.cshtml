@@ -113,20 +113,33 @@
     @Html.ActionLink("Back to Event", "Edit","Events", new { id = ViewBag.EventId },null)
 </div>
 
-<script type="text/javascript">
+@*<script type="text/javascript">
     $(function () {
         $("#Description").combobox();
     });
-</script>
+</script>*@
 
-<script type="text/javascript">
+@*<script type="text/javascript">
         $(document).ready(function () {
             $("tr:contains('$0.00')").addClass('balanced');
             $("tr:contains('($')").addClass('credit');
 
+            var defaultCosts = [];
+            @foreach (var d in Model.DefaultCosts)
+            {
+                @:defaultCosts.push("@d");
+            }
+    });
+
+</script>*@
+
+<script type="text/javascript">
+        $(function () {
+            $("[name='Description']").change(function () {
+                var parsed = $(this).val().split("|");
+                var amount = parsed[1];
+                $("#Amount").val(amount);
+            });
         });
-
 </script>
-
-
 

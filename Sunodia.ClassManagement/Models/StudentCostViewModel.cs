@@ -16,6 +16,7 @@ namespace Sunodia.ClassManagement.Models
         public Person Student { get; set; }
 
         public List<vwEventTransaction> StudentTransactions { get; set; }
+        public List<StudentCost> DefaultCosts { get; set; }
         public IEnumerable<SelectListItem> EventDescs { get; set; }
         public IEnumerable<SelectListItem> RegTypes { get; set; }
         public IEnumerable<SelectListItem> PaymentTypes { get; set; }

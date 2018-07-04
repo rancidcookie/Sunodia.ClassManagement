@@ -624,6 +624,7 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Eventbrite\Index.cshtml" />
     <Content Include="Views\Eventbrite\LinkEvent.cshtml" />
+    <Content Include="Views\Events\EditCost.cshtml" />
     <None Include="Web.FHI.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

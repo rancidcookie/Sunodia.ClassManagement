@@ -45,12 +45,12 @@ namespace Sunodia.ClassManagement.Controllers
         // GET: Classes/Create
         public ActionResult Create()
         {
-            ViewBag.CourseFormatId = new SelectList(db.CourseFormats, "Id", "Format","");
+            ViewBag.CourseFormatId = new SelectList(db.CourseFormats, "Id", "Format", "");
             ViewBag.FrequencyId = new SelectList(db.Frequencies, "Id", "Frequency1", "");
             var SelectCourse = new SelectList(db.Courses, "Id", "CourseName");
-            SelectCourse.Default("Select Course","");
+            SelectCourse.Default("Select Course", "");
             ViewBag.CourseId = SelectCourse;
-            
+
             return View();
         }
 
@@ -135,7 +135,7 @@ namespace Sunodia.ClassManagement.Controllers
             }
 
             //ViewBag.CostDescriptions = new SelectList(db.StudentCosts, "Id", "Description", @class.C);
-            
+
             return View(@class);
         }
 
@@ -173,7 +173,7 @@ namespace Sunodia.ClassManagement.Controllers
             {
                 db.EventCost2Student.Remove(eventcostStudent);
                 db.SaveChanges();
-                return RedirectToAction("Costs",  new
+                return RedirectToAction("Costs", new
                 {
                     id = eventId
                 });
@@ -267,6 +267,46 @@ namespace Sunodia.ClassManagement.Controllers
                 db.EventCost2Student.Add(newEventCostToStudent);
             }
             db.SaveChanges();
+        }
+
+        public ActionResult EditCost(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EventCost2Student @cost = db.EventCost2Student.Find(id);
+            if (@cost == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(@cost);
+        }
+
+
+        // POST: Classes/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCost([Bind(Include = "Id,CostDescription,Cost,Required,EventId")] EventCost2Student studentCost)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var oldstudentCost = db.EventCost2Student.Find(studentCost.Id);
+                oldstudentCost.Cost = studentCost.Cost;
+                oldstudentCost.CostDescription = studentCost.CostDescription;
+                oldstudentCost.Required = studentCost.Required;
+
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Costs", new
+            {
+                id = studentCost.EventId
+            });
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="sunodiaEntities-Web.config Connection String" description="sunodiaEntities Connection String used in web.config by the application to access the database." defaultValue="Nope" tags="SqlConnectionString">
+  <parameter name="sunodiaEntities-Web.config Connection String" description="sunodiaEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=sunodia1.database.windows.net;Initial Catalog=Sunodia-Test;Integrated Security=False;User ID=sunadmin;Password=Resources5228?;Connect Timeout=15;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&quot;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="D:\\MyDocs\\Git\\Sunodia\.ClassManagement\\Sunodia\.ClassManagement\\obj\\Sunodia-Test\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sunodiaEntities']/@connectionString" />
   </parameter>
 </parameters>
