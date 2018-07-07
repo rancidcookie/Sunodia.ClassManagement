@@ -79,6 +79,8 @@ namespace Sunodia.ClassManagement.Controllers
         {
             var eventStudent = new EventStudent() { StudentId = (int)studentId, EventId = (int)eventId , DateAdded = DateTime.Now};
             db.EventStudents.Add(eventStudent);
+            //Make them a student
+            AddPersonToStudentGroup(eventStudent.StudentId);
             db.SaveChanges();
 
             return RedirectToAction("Search", new
@@ -91,16 +93,26 @@ namespace Sunodia.ClassManagement.Controllers
 
         }
 
+        private void AddPersonToStudentGroup(int personId)
+        {
+            var groupId = db.Groups.Where(x => x.GroupName == "Student").FirstOrDefault().Id;
+            var tmpPersonGroup = db.PersonGroups.Where(x => x.PersonId == personId && x.GroupId == groupId);
+            if (tmpPersonGroup.Count() == 0)
+            {
+                var newPersonGroup = new PersonGroup() { PersonId = personId, GroupId = groupId };
+                db.PersonGroups.Add(newPersonGroup);
+                db.SaveChanges();
+            }
+        }
         // GET: EventStudents/Edit/5
 
-        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId, string showAll)
+        public ActionResult Search(string firstNameFilter, string lastNameFilter, int? EventId)
         {
             var students = db.People.Where(x=>x.LastName != null);
-
-            if (showAll != "true")
-            {
+            var filtered = !string.IsNullOrEmpty(firstNameFilter) || !string.IsNullOrEmpty(lastNameFilter);
+            if (!filtered)
                 students = students.Where(x => x.PersonGroups.Any(y => y.Group.GroupName == "Student"));
-            }
+
             var myEvent = db.Events.Where(x => x.Id == EventId).First();
 
             if (!string.IsNullOrEmpty(firstNameFilter))
@@ -118,13 +130,18 @@ namespace Sunodia.ClassManagement.Controllers
         [HttpPost]
         public ActionResult Search(FormCollection collection)
         {
+            var firstNameFilter = collection["firstNameFilter"];
+            var lastNameFilter = collection["lastNameFilter"];
+            var EventId = collection["eventId"];
+            var ShowAll = collection["showall"];
+
+            ModelState.Clear();
 
             return RedirectToAction("Search", new
             {
-                firstNameFilter = collection["firstNameFilter"],
-                lastNameFilter = collection["lastNameFilter"],
-                EventId = collection["eventId"], 
-                ShowAll = collection["showall"]
+                firstNameFilter,
+                lastNameFilter,
+                EventId
             });
         }
 
