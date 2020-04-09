@@ -31,6 +31,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/23674546-b4b5-428b-bfcf-1b17bd80a95f/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/FHI</ApplicationInsightsAnnotationResourceId>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -455,11 +456,11 @@
     <Content Include="Models\sunodiaData.edmx.diagram">
       <DependentUpon>sunodiaData.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\FindingHomeInstitute - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\FindingHomeInstitute.pubxml" />
-    <None Include="Properties\PublishProfiles\GoDaddy.pubxml" />
-    <None Include="Properties\PublishProfiles\sunodia1 - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\SunodiaTest - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia-test - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sunodia-test - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChoEditableDropDown.js" />
     <Content Include="Scripts\fhi.js" />
