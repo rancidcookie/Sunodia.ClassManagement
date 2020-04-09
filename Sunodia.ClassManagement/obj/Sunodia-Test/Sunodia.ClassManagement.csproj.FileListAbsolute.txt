@@ -79,4 +79,6 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.pdb
-D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.csprojResolveAssemblyReference.cache
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.csprojAssemblyReference.cache
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.csproj.CoreCompileInputs.cache
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Sunodia-Test\Sunodia.ClassManagement.csproj.CopyComplete

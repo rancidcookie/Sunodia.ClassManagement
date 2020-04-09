@@ -77,6 +77,8 @@ D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.Google.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.Twitter.xml
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.csprojResolveAssemblyReference.cache
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.dll
 D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.pdb
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.csprojAssemblyReference.cache
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.csproj.CoreCompileInputs.cache
+D:\MyDocs\Git\Sunodia.ClassManagement\Sunodia.ClassManagement\obj\Release\Sunodia.ClassManagement.csproj.CopyComplete
