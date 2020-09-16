@@ -2,7 +2,7 @@ So we're going to change the Registration types to Default Student Costs
 In manage event update the "Typical Costs" to use the pull down from StudentCosts
 In manage student, when you pick something from the list it adds the cost
 
-í =  alt 2371
+Ã­ =  alt 2371
 
 Updating IP access...
 Log into Azure
@@ -23,5 +23,3 @@ In the solution explorer right click on the FHIData.Context.cs and select "Run C
 Have to rebuild solution before building controller
 
 
-I created an FHI login dan@rafferty.biz
-pwd: Good8564!
